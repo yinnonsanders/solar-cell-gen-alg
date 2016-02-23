@@ -1,5 +1,6 @@
-% Jackie Loven, 19 February 2016
+% Jackie Loven, 23 February 2016
 
+%  originalMatrix and newMatrix are 4D matrices.
 %  Tuner goes from 1 to 10. 10 is fewer random replacements and more correlated.
 %  1 is more random replacements and less correlated.
 %  seeds is EITHER a matrix, n * 3, in which you can input n number of 3D coordinates,
@@ -50,8 +51,8 @@ function originalMatrix = generate_random_array(originalMatrix, newMatrix, tuner
         x = uncorrelatedCoordinateMatrix(uncorrelatedElement, 1);
         y = uncorrelatedCoordinateMatrix(uncorrelatedElement, 2);
         z = uncorrelatedCoordinateMatrix(uncorrelatedElement, 3);
-        if (originalMatrix(x, y, z) ~= newMatrix(x, y, z)) 
-            originalMatrix(x, y, z) = newMatrix(x, y, z);
+        if (originalMatrix(x, y, z, 1) ~= newMatrix(x, y, z, 1)) 
+            originalMatrix(x, y, z, 1) = newMatrix(x, y, z, 1);
         end
     end
 
@@ -102,8 +103,8 @@ function originalMatrix = generate_random_array(originalMatrix, newMatrix, tuner
             x = correlatedCoordinateMatrix(correlatedElement, 1);
             y = correlatedCoordinateMatrix(correlatedElement, 2);
             z = correlatedCoordinateMatrix(correlatedElement, 3);
-            if (originalMatrix(x, y, z) ~= newMatrix(x, y, z)) 
-                originalMatrix(x, y, z) = newMatrix(x, y, z);
+            if (originalMatrix(x, y, z, 1) ~= newMatrix(x, y, z, 1)) 
+                originalMatrix(x, y, z, 1) = newMatrix(x, y, z, 1);
             end
         end
         
