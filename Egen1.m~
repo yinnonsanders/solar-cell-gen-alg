@@ -45,9 +45,7 @@ while i<=S(1)
             if mark==1 && System(i,j,k,1)~=2 && System(i,j,k,1)~=1
                 k=k+1;
             end
-            if mark==0 && k==0
-                break
-            end
+            if mark
         end
         j=j+1;
     end
