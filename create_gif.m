@@ -22,11 +22,11 @@ for matrix = 1:number
 end
 generatedMatrixList = generate_crossovers(A, fittingFunction, 5, matrixList);
 for matrix = 1:number
-    fittingFunction(matrix) = fittingFn(matrixList{1, matrix});
+    fittingFunction(matrix) = fittingFn(generatedMatrixList{1, matrix});
 end
 generatedMatrixList2 = generate_crossovers(A, fittingFunction, 5, generatedMatrixList);
 for matrix = 1:number
-    fittingFunction(matrix) = fittingFn(matrixList{1, matrix});
+    fittingFunction(matrix) = fittingFn(generatedMatrixList2{1, matrix});
 end
 generatedMatrixList3 = generate_crossovers(A, fittingFunction, 5, generatedMatrixList2);
 generationsList = {generatedMatrixList; generatedMatrixList2; generatedMatrixList3};
