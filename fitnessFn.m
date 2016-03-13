@@ -1,5 +1,5 @@
 function [efficiency] = fitnessFn(System)
-
+tic;
 %Takes a 4D matrix "System" and gives the efficiency.
 
 %Creates Lightprop matrix
@@ -7,6 +7,7 @@ t00=cputime;
 filename='EPVD1.xlsx';
 EPD=xlsread(filename);
 Lightprop=Lightqd(EPD);
+close all
 
 % Takes a matrix "System"(a) and "Lightprop" and finds excited electrons 
 % in all indices close enough to a conductor; then, sums all those excited elections in matrix "System".
@@ -31,4 +32,5 @@ end
 e=1.6*10^-16; %mah
 A=10^-7*10^-7;%there was no fix for 5nm cube yet 
 efficiency=(total/(size(a,1)*size(a,2)))*e/A;
+toc
 end
