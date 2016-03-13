@@ -18,15 +18,15 @@ A = [x, y, z, extraParamCount, number];
 
 %  There will be an associated fitting function per matrix:
 for matrix = 1:number
-    fittingFunction(matrix) = fittingFn(matrixList{1, matrix});
+    fittingFunction(matrix) = fitnessFn(matrixList{1, matrix});
 end
 generatedMatrixList = generate_crossovers(A, fittingFunction, 5, matrixList);
 for matrix = 1:number
-    fittingFunction(matrix) = fittingFn(generatedMatrixList{1, matrix});
+    fittingFunction(matrix) = fitnessFn(generatedMatrixList{1, matrix});
 end
 generatedMatrixList2 = generate_crossovers(A, fittingFunction, 5, generatedMatrixList);
 for matrix = 1:number
-    fittingFunction(matrix) = fittingFn(generatedMatrixList2{1, matrix});
+    fittingFunction(matrix) = fitnessFn(generatedMatrixList2{1, matrix});
 end
 generatedMatrixList3 = generate_crossovers(A, fittingFunction, 5, generatedMatrixList2);
 generationsList = {generatedMatrixList; generatedMatrixList2; generatedMatrixList3};
