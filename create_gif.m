@@ -16,19 +16,31 @@ extraParamCount = size(matrixList{1, 1}, 4);
 number = size(matrixList, 2);
 A = [x, y, z, extraParamCount, number];
 
+
 %  There will be an associated fitting function per matrix:
 for matrix = 1:number
+    %  Make sure the matrix fits parameters.
+    edit_final_matrix_4D(matrixList{1, matrix}, 1, 0, 3)
     fittingFunction(matrix) = fitnessFn(matrixList{1, matrix});
 end
 generatedMatrixList = generate_crossovers(A, fittingFunction, 5, matrixList);
+
 for matrix = 1:number
+    edit_final_matrix_4D(generatedMatrixList{1, matrix}, 1, 0, 3)
     fittingFunction(matrix) = fitnessFn(generatedMatrixList{1, matrix});
 end
 generatedMatrixList2 = generate_crossovers(A, fittingFunction, 5, generatedMatrixList);
+
 for matrix = 1:number
+    edit_final_matrix_4D(generatedMatrixList2{1, matrix}, 1, 0, 3)
     fittingFunction(matrix) = fitnessFn(generatedMatrixList2{1, matrix});
 end
 generatedMatrixList3 = generate_crossovers(A, fittingFunction, 5, generatedMatrixList2);
+
+for matrix = 1:number
+    edit_final_matrix_4D(generatedMatrixList3{1, matrix}, 1, 0, 3)
+end
+
 generationsList = {generatedMatrixList; generatedMatrixList2; generatedMatrixList3};
 
 ballsize = 8;
