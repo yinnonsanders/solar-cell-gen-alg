@@ -72,6 +72,12 @@ fitnessFn.m
 
 generation.m
 
+Generate new generation with the same number of members
+
+Takes a 5D matrix (array of 4D matrices), a tuner for crossovers, and a tuner for mutations
+
+Returns a 5D matrix (array of 4D matrices)
+
 ---------------
 
 Lightqd.m
