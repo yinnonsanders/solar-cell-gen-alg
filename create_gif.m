@@ -16,29 +16,29 @@ extraParamCount = size(matrixList{1, 1}, 4);
 number = size(matrixList, 2);
 A = [x, y, z, extraParamCount, number];
 
-fittingFunction = ones(1,number);
+
 %  There will be an associated fitting function per matrix:
 for matrix = 1:number
     %  Make sure the matrix fits parameters.
-    matrixList{1, matrix} = edit_final_matrix_4D(matrixList{1, matrix}, 1, 0, 3);
+    edit_final_matrix_4D(matrixList{1, matrix}, 1, 0, 3)
     fittingFunction(matrix) = fitnessFn(matrixList{1, matrix});
 end
 generatedMatrixList = generate_crossovers(A, fittingFunction, 5, matrixList);
 
 for matrix = 1:number
-    generatedMatrixList{1, matrix} = edit_final_matrix_4D(generatedMatrixList{1, matrix}, 1, 0, 3);
-    fittingFunction(1, matrix) = fitnessFn(generatedMatrixList{1, matrix});
+    edit_final_matrix_4D(generatedMatrixList{1, matrix}, 1, 0, 3)
+    fittingFunction1(matrix) = fitnessFn(generatedMatrixList{1, matrix});
 end
 generatedMatrixList2 = generate_crossovers(A, fittingFunction, 5, generatedMatrixList);
 
 for matrix = 1:number
-    generatedMatrixList2{1, matrix} = edit_final_matrix_4D(generatedMatrixList2{1, matrix}, 1, 0, 3);
-    fittingFunction(matrix) = fitnessFn(generatedMatrixList2{1, matrix});
+    edit_final_matrix_4D(generatedMatrixList2{1, matrix}, 1, 0, 3)
+    fittingFunction2(matrix) = fitnessFn(generatedMatrixList2{1, matrix});
 end
 generatedMatrixList3 = generate_crossovers(A, fittingFunction, 5, generatedMatrixList2);
 
 for matrix = 1:number
-    generatedMatrixList3{1, matrix} = edit_final_matrix_4D(generatedMatrixList3{1, matrix}, 1, 0, 3);
+    edit_final_matrix_4D(generatedMatrixList3{1, matrix}, 1, 0, 3)
 end
 
 generationsList = {generatedMatrixList; generatedMatrixList2; generatedMatrixList3};
@@ -49,6 +49,22 @@ ballsize = 8;
 close all;
 figure('position', [0, 500, 2100, 400])  % left, bottom, width, height
 filename = 'test.gif';
+
+fittingFunctionAverage = mean(fittingFunction);
+fittingFunctionAverage2 = mean(fittingFunction2);
+fittingFunctionAverage3 = mean(fittingFunction3);
+fitFnValues = [fittingFunctionAverage fittingFunctionAverage2 fittingFunctionAverage3];
+x = [1 2 3];
+
+close all
+hold on
+plot(x, fitFnValues,'k*')
+set(gca,'fontsize', 14)
+xlabel ('Generation')
+ylabel ('Average Fitting Function Value')
+title('Fitting Function Values Over Time')
+hold off
+
 
 for numberOfGenerations = 1:size(generationsList,1)
     for numberOfMembers = 1:number
