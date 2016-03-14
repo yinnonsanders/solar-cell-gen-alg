@@ -8,6 +8,14 @@ AEP_spherical_2.m
 
 breadth_first1.m
 
+Determine if conductor 1 voxel is linked to the bottom of the cell by 
+
+neighboring conductor 1 voxels.
+
+Takes a 4D matrix
+
+Returns a 4D matrix with updated (i,j,k,3) property
+
 ---------------
 
 cellMutate.m
@@ -36,6 +44,7 @@ CleanEPD.m
 
 collection_zone_spherical.m
 
+Determines which excited electrons are in the vicinity of the 
 ---------------
 
 collect_e.m
