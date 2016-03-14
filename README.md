@@ -1,6 +1,6 @@
 # solar-cell-gen-alg
 
------Files-----
+# Files
 
 AEP_spherical_2.m
 
