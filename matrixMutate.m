@@ -1,17 +1,20 @@
-function m = matrixMutate(m,n,t)
+function a = matrixMutate(m,n,t)
 % Apply n mutations to matrix m
-% m is an array with 4 dimensions
-% t is a value from 1-10 that determines proximity of mutations
+% a is an array with 4 dimensions
+% v is a value from 1-10 that determines proximity of mutations
 % 1 = random arrangement
 % 10 = adjacent mutations
 
+global a;
+a = m;
+
 % set floors and ceilings for mutation positions
 floorx = 1;
-ceilingx = size(m,1);
+ceilingx = size(a,1);
 floory = 1;
-ceilingy = size(m,2);
+ceilingy = size(a,2);
 floorz = 2;
-ceilingz = size(m,3) - 1;
+ceilingz = size(a,3) - 1;
 
 % initialize ranges of mutation positions
 minx = floorx;
@@ -32,9 +35,9 @@ while i < n
     z = randi([minz,maxz]);
     
     % attempt to mutate
-    v = cellMutate(m,x,y,z);
+    v = cellMutate(a,x,y,z);
     if v ~= -1
-        m(x,y,z) = v;
+        a(x,y,z) = v;
         i = i + 1;
     end
     

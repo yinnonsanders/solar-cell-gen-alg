@@ -1,6 +1,6 @@
 function [ system ] = collection_zone_spherical( system )
 %d = distance
-d = 30;
+d = 3;
 S = size(system);
 i=1;
 

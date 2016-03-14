@@ -37,9 +37,6 @@ while i<=S(1)
             if mark==0 && System(i,j,k,1)~=2 && System(i,j,k,1)~=1
                 k=k-1;
             end
-            i
-            j
-            k
             if mark==1 && System(i,j,k,1)==2
                 System(i,j,k,2)=System(i,j,k,2)+ Lightprop(4101,d)-Lightprop(4101,d+1);
                 k=k+1;
