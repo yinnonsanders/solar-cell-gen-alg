@@ -1,4 +1,4 @@
-%  Jackie Loven, 13 March 2016
+%  Jackie Loven, 14 March 2016
 
 matrix1 = ones(10, 10, 10, 11);
 matrix2 = ones(10, 10, 10, 11) * 0;
@@ -18,30 +18,47 @@ A = [x, y, z, extraParamCount, number];
 
 
 %  There will be an associated fitting function per matrix:
+% Elapsed time for fitting function on 10x10x10 is approx. 55 seconds for
+% each matrix.
 for matrix = 1:number
     %  Make sure the matrix fits parameters.
-    edit_final_matrix_4D(matrixList{1, matrix}, 1, 0, 3)
+    matrixList{1, matrix} = edit_final_matrix_4D(matrixList{1, matrix}, 1, 0, 3);
     fittingFunction(matrix) = fitnessFn(matrixList{1, matrix});
 end
 generatedMatrixList = generate_crossovers(A, fittingFunction, 5, matrixList);
 
 for matrix = 1:number
-    edit_final_matrix_4D(generatedMatrixList{1, matrix}, 1, 0, 3)
+    generatedMatrixList{1, matrix} = edit_final_matrix_4D(generatedMatrixList{1, matrix}, 1, 0, 3);
     fittingFunction1(matrix) = fitnessFn(generatedMatrixList{1, matrix});
 end
-generatedMatrixList2 = generate_crossovers(A, fittingFunction, 5, generatedMatrixList);
+generatedMatrixList2 = generate_crossovers(A, fittingFunction1, 5, generatedMatrixList);
 
 for matrix = 1:number
-    edit_final_matrix_4D(generatedMatrixList2{1, matrix}, 1, 0, 3)
+    generatedMatrixList2{1, matrix} = edit_final_matrix_4D(generatedMatrixList2{1, matrix}, 1, 0, 3);
     fittingFunction2(matrix) = fitnessFn(generatedMatrixList2{1, matrix});
 end
-generatedMatrixList3 = generate_crossovers(A, fittingFunction, 5, generatedMatrixList2);
+generatedMatrixList3 = generate_crossovers(A, fittingFunction2, 5, generatedMatrixList2);
 
 for matrix = 1:number
-    edit_final_matrix_4D(generatedMatrixList3{1, matrix}, 1, 0, 3)
+    generatedMatrixList3{1, matrix} = edit_final_matrix_4D(generatedMatrixList3{1, matrix}, 1, 0, 3);
 end
 
 generationsList = {generatedMatrixList; generatedMatrixList2; generatedMatrixList3};
+
+fittingFunctionAverage = mean(fittingFunction);
+fittingFunctionAverage2 = mean(fittingFunction1);
+fittingFunctionAverage3 = mean(fittingFunction2);
+fitFnValues = [fittingFunctionAverage fittingFunctionAverage2 fittingFunctionAverage3];
+x = [1 2 3];
+
+close all
+hold on
+plot(x, fitFnValues)
+set(gca,'fontsize', 14)
+xlabel ('Generation')
+ylabel ('Average Fitting Function Value')
+title('Fitting Function Values Over Time')
+hold off
 
 ballsize = 8;
 [xx, yy, zz] = meshgrid(1:10,1:10,1:10);
@@ -49,22 +66,6 @@ ballsize = 8;
 close all;
 figure('position', [0, 500, 2100, 400])  % left, bottom, width, height
 filename = 'test.gif';
-
-fittingFunctionAverage = mean(fittingFunction);
-fittingFunctionAverage2 = mean(fittingFunction2);
-fittingFunctionAverage3 = mean(fittingFunction3);
-fitFnValues = [fittingFunctionAverage fittingFunctionAverage2 fittingFunctionAverage3];
-x = [1 2 3];
-
-close all
-hold on
-plot(x, fitFnValues,'k*')
-set(gca,'fontsize', 14)
-xlabel ('Generation')
-ylabel ('Average Fitting Function Value')
-title('Fitting Function Values Over Time')
-hold off
-
 
 for numberOfGenerations = 1:size(generationsList,1)
     for numberOfMembers = 1:number
