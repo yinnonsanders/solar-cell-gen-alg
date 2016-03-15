@@ -1,96 +1,78 @@
 inputMatrix = ones(10,10,10,11,5);
-inputMatrix(:,:,:,1,1) = 1;
-inputMatrix(:,:,:,1,2) = 0;
-inputMatrix(:,:,:,1,3) = 1;
-inputMatrix(:,:,:,1,4) = 2;
-inputMatrix(:,:,:,1,5) = 3;
-matrix2 = ones(10, 10, 10, 11) * 0;
-matrix3 = ones(10, 10, 10, 11) * 2;
-matrix4 = ones(10, 10, 10, 11) * 3;
-matrix5 = ones(10, 10, 10, 11) * 1;
+% Generate some random matrices for generation 1
+inputMatrix(:,:,:,1,1) = randi(3,10,10,10);
+inputMatrix(:,:,:,1,2) = randi(3,10,10,10);
+inputMatrix(:,:,:,1,3) = randi(3,10,10,10);
+inputMatrix(:,:,:,1,4) = randi(3,10,10,10);
+inputMatrix(:,:,:,1,5) = randi(3,10,10,10);
 
-matrixList = {matrix1, matrix2, matrix3, matrix4, matrix5};
+generationSize = size(inputMatrix, 5);
+numberOfGenerations = 5; % Change this for more interesting results!
 
-% Make sure the input matrices fits parameters.
+% Make sure the input matrices fits specifications.
 for i = 1:generationSize
     inputMatrix(:,:,:,:,i) = edit_final_matrix_4D(inputMatrix(:,:,:,:,i),1,0,3);
 end
 
-%  Assume matrix sizes are all the same.
-generationSize = size(inputMatrix, 2);
-numberOfGenerations = 5;
-outputMatrix = [size(inputMatrix), numberOfGenerations];
+x = size(inputMatrix,1);
+y = size(inputMatrix,2);
+z = size(inputMatrix,3);
+outputMatrix = zeros(x,y,z,11,generationSize,numberOfGenerations);
 outputMatrix(:,:,:,:,:,1) = inputMatrix;
 
-%  There will be an associated fitting function per matrix:
-for generation = 1:numberOfGenerations
-    for matrix = 1:generationSize
-        fittingFunction(matrix) = fitnessFn(matrixList{1, matrix});
+fitnessMatrix = [generationSize, numberOfGenerations];
+
+for gen = 1:numberOfGenerations
+    for mat = 1:generationSize
+        currentMatrix = outputMatrix(:,:,:,:,mat,gen);
+        fitnessMatrix(mat, gen) = fitnessFn(currentMatrix);
+        if gen ~= numberOfGenerations
+            % Did not yet reach the last generation
+            outputMatrix(:,:,:,:,mat,gen+1) = matrixMutate(currentMatrix,20,1);
+        end
     end
-    generatedMatrixList = generate_crossovers(A, fittingFunction, 5, matrixList);
 end
 
-for matrix = 1:generationSize
-    %  Make sure the matrix fits parameters.
-    edit_final_matrix_4D(matrixList{1, matrix}, 1, 0, 3)
-    fittingFunction(matrix) = fitnessFn(matrixList{1, matrix});
-end
-generatedMatrixList = generate_crossovers(A, fittingFunction, 5, matrixList);
+fitnessAverages = zeros(numberOfGenerations);
 
-for matrix = 1:generationSize
-    edit_final_matrix_4D(generatedMatrixList{1, matrix}, 1, 0, 3)
-    fittingFunction1(matrix) = fitnessFn(generatedMatrixList{1, matrix});
-end
-generatedMatrixList2 = generate_crossovers(A, fittingFunction, 5, generatedMatrixList);
-
-for matrix = 1:generationSize
-    edit_final_matrix_4D(generatedMatrixList2{1, matrix}, 1, 0, 3)
-    fittingFunction2(matrix) = fitnessFn(generatedMatrixList2{1, matrix});
-end
-generatedMatrixList3 = generate_crossovers(A, fittingFunction, 5, generatedMatrixList2);
-
-for matrix = 1:generationSize
-    edit_final_matrix_4D(generatedMatrixList3{1, matrix}, 1, 0, 3)
+for gen = 1:numberOfGenerations
+    fitnessAverages(gen) = mean(fitnessMatrix(:,gen));
 end
 
-generationsList = {generatedMatrixList; generatedMatrixList2; generatedMatrixList3};
+figure('position', [0, 500, 2500, 400])  % left, bottom, width, height
+filename = 'output.gif';
 
-ballsize = 8;
-[xx, yy, zz] = meshgrid(1:10,1:10,1:10);
+i = 1;
+fitnessVector = zeros(1,generationSize * numberOfGenerations);
+fitnessGeneration = zeros(1,generationSize * numberOfGenerations);
 
-close all;
-figure('position', [0, 500, 2100, 400])  % left, bottom, width, height
-filename = 'test.gif';
-
-fittingFunctionAverage = mean(fittingFunction);
-fittingFunctionAverage2 = mean(fittingFunction2);
-fittingFunctionAverage3 = mean(fittingFunction3);
-fitFnValues = [fittingFunctionAverage fittingFunctionAverage2 fittingFunctionAverage3];
-x = [1 2 3];
-
-close all
-hold on
-plot(x, fitFnValues,'k*')
-set(gca,'fontsize', 14)
-xlabel ('Generation')
-ylabel ('Average Fitting Function Value')
-title('Fitting Function Values Over Time')
-hold off
-
-
-for numberOfGenerations = 1:size(generationsList,1)
-    for numberOfMembers = 1:generationSize
-        currentGen = generationsList{numberOfGenerations,1};
-        current = currentGen{1,numberOfMembers};
-        subplot(1,5,numberOfMembers)
-        toDraw = current(:,:,:,1);
-        scatter3(xx(:),yy(:),zz(:), ballsize, toDraw(:), 'filled')
+for gen = 1:numberOfGenerations
+    for mat = 1:generationSize
+        fitnessVector(1,i) = fitnessMatrix(mat,gen);
+        fitnessGeneration(1,i) = gen;
+        i = i + 1;
     end
+end
+
+for gen = 1:numberOfGenerations
+    for mat = 1:generationSize
+        currentMatrix = outputMatrix(:,:,:,:,mat,gen);
+        subplot(1,generationSize + 1,mat)
+        toDraw = currentMatrix(:,:,:,1);
+        visualize_materials(toDraw)
+    end
+    
+    subplot(1,generationSize + 1,generationSize + 1)
+    scatter(fitnessGeneration, fitnessVector)
+    set(gca,'fontsize', 14)
+    xlabel ('Generation')
+    ylabel ('Fitness Function Value')
+    title('Fitness Function Values Over Time')
     
     frame = getframe(1);
     im = frame2im(frame);
     [imind,cm] = rgb2ind(im,256);
-    if numberOfGenerations == 1;
+    if gen == 1;
         imwrite(imind,cm,filename,'gif', 'Loopcount',inf);
     else
         imwrite(imind,cm,filename,'gif','WriteMode','append');

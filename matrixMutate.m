@@ -53,7 +53,7 @@ while i < n
     minz = uint32(z - (ceilingz / 2 - t * ceilingz / 20 + 1));
     minz = max([minz,floorz]);
     maxz = uint32(z + (ceilingz / 2 - t * ceilingz / 20 + 1));
-    maxz = min([maxz,ceilingx]);
+    maxz = min([maxz,ceilingz]);
     
 end
 
