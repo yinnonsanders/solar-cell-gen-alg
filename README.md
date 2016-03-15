@@ -1,6 +1,7 @@
 # solar-cell-gen-alg
 
-# Files
+Files
+---------------
 
 AEP_spherical_2.m
 
@@ -44,7 +45,8 @@ CleanEPD.m
 
 collection_zone_spherical.m
 
-Determines which excited electrons are in the vicinity of the 
+Determines which excited electrons are in the vicinity of the
+
 ---------------
 
 collect_e.m
@@ -121,6 +123,12 @@ Returns a mutated matrix
 
 ---------------
 
+mutation_generation_gif.m
+
+A script that generates a gif showing change in efficiency over generations
+
+---------------
+
 OfC.m
 
 ---------------
@@ -185,4 +193,5 @@ Takes a 3D matrix, creates a 3D scatter plot
 
 ---------------
 
-voxel.m 
+voxel.m
+
