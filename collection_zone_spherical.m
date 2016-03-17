@@ -2,9 +2,17 @@ function [ system ] = collection_zone_spherical( system )
 %d = distance
 d = 150;
 S = size(system);
-i=1;
 
-system(:,:,1:d,5)=1; %This limit will always be collected
+system(:,:,1:d,5)=1;
+% for i=1:S(1)
+%     for j=1:S(2)
+%         for k=d+1:S(3)
+%             if system(i,j,k,3)==1
+%                 if ((S(1)-i)*(S(1)-i)+(S(2)-j)*(S(2)-j)+(S(3)-k)*(S(3)-k))<= (150*150)
+% j=1;
+% k=d+1;
+
+
 
 while i <= S(1)
     disp('CL')
