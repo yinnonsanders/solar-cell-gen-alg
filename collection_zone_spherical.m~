@@ -1,6 +1,6 @@
 function [ system ] = collection_zone_spherical( system )
 %d = distance
-d = 30;
+d = 150;
 S = size(system);
 i=1;
 
@@ -16,6 +16,7 @@ while i <= S(1)
             if system(i,j,k,3)==1 %if the current voxel is a connected conductor
                 
                 %check for neighbors
+   
                 for m = -d:d
                     for n = -d:d
                         for l = -d:d
