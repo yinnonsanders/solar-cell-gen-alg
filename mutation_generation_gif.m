@@ -1,5 +1,5 @@
 % 5D matrix for all matrices in first generation
-inputMatrix = zeros(100,100,300,11,5);
+inputMatrix = zeros(100,100,300,11,10);
 
 % Generate some random matrices for generation 1
 inputMatrix(:,:,:,1,1) = randi(3,10,10,10);
