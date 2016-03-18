@@ -1,5 +1,6 @@
 % 5D matrix for all matrices in first generation
-inputMatrix = ones(10,10,10,11,5);
+inputMatrix = zeros(10,10,10,11,5);
+
 % Generate some random matrices for generation 1
 inputMatrix(:,:,:,1,1) = randi(3,10,10,10);
 inputMatrix(:,:,:,1,2) = randi(3,10,10,10);
@@ -8,7 +9,8 @@ inputMatrix(:,:,:,1,4) = randi(3,10,10,10);
 inputMatrix(:,:,:,1,5) = randi(3,10,10,10);
 
 generationSize = size(inputMatrix, 5);
-numberOfGenerations = 10; % Change this for more interesting results!
+
+numberOfGenerations = 20; % Change this for more interesting results!
 
 % Make sure the input matrices fits specifications.
 for i = 1:generationSize
@@ -25,16 +27,29 @@ outputMatrix(:,:,:,:,:,1) = inputMatrix;
 % Matrix to hold fitness values for each matrix
 fitnessMatrix = [generationSize, numberOfGenerations];
 
-for gen = 1:numberOfGenerations
+for mat = 1:generationSize
+    currentMatrix = outputMatrix(:,:,:,:,mat,1);
+    % Calculate fitness
+    fitnessMatrix(mat, 1) = fitnessFn(currentMatrix);
+end
+
+for gen = 1:numberOfGenerations - 1
+    doubleGeneration = zeros(x,y,z,11,generationSize);
+    doubleGenFitness = [];
     for mat = 1:generationSize
         currentMatrix = outputMatrix(:,:,:,:,mat,gen);
-        % Calculate fitness
-        fitnessMatrix(mat, gen) = fitnessFn(currentMatrix);
-        if gen ~= numberOfGenerations
-            % Did not yet reach the last generation
-            % Make next generation
-            outputMatrix(:,:,:,:,mat,gen+1) = matrixMutate(currentMatrix,20,1);
-        end
+        mutatedMatrix1 = matrixMutate(currentMatrix,20,1);
+        doubleGeneration(:,:,:,:,mat * 2 - 1) = mutatedMatrix1;
+        doubleGenFitness = [doubleGenFitness fitnessFn(mutatedMatrix1)];
+        mutatedMatrix2 = matrixMutate(currentMatrix,20,1);
+        doubleGeneration(:,:,:,:,mat * 2) = mutatedMatrix2;
+        doubleGenFitness = [doubleGenFitness fitnessFn(mutatedMatrix2)];
+    end
+    for i = 1:generationSize
+        [value,maxIndex] = max(doubleGenFitness);
+        outputMatrix(:,:,:,:,i,gen+1) = doubleGeneration(:,:,:,:,maxIndex);
+        fitnessMatrix(i,gen+1) = doubleGenFitness(maxIndex);
+        doubleGenFitness(maxIndex) = 0;
     end
 end
 
