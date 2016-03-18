@@ -1,5 +1,5 @@
 % 5D matrix for all matrices in first generation
-inputMatrix = zeros(10,10,10,11,5);
+inputMatrix = zeros(100,100,300,11,5);
 
 % Generate some random matrices for generation 1
 inputMatrix(:,:,:,1,1) = randi(3,10,10,10);
@@ -10,7 +10,7 @@ inputMatrix(:,:,:,1,5) = randi(3,10,10,10);
 
 generationSize = size(inputMatrix, 5);
 
-numberOfGenerations = 20; % Change this for more interesting results!
+numberOfGenerations = 30; % Change this for more interesting results!
 
 % Make sure the input matrices fits specifications.
 for i = 1:generationSize
@@ -38,10 +38,10 @@ for gen = 1:numberOfGenerations - 1
     doubleGenFitness = [];
     for mat = 1:generationSize
         currentMatrix = outputMatrix(:,:,:,:,mat,gen);
-        mutatedMatrix1 = matrixMutate(currentMatrix,20,1);
+        mutatedMatrix1 = matrixMutate(currentMatrix,500,1);
         doubleGeneration(:,:,:,:,mat * 2 - 1) = mutatedMatrix1;
         doubleGenFitness = [doubleGenFitness fitnessFn(mutatedMatrix1)];
-        mutatedMatrix2 = matrixMutate(currentMatrix,20,1);
+        mutatedMatrix2 = matrixMutate(currentMatrix,500,1);
         doubleGeneration(:,:,:,:,mat * 2) = mutatedMatrix2;
         doubleGenFitness = [doubleGenFitness fitnessFn(mutatedMatrix2)];
     end
