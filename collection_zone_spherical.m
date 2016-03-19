@@ -23,7 +23,7 @@ system(:,:,1:d,5)=1;
 %     end
 % end
 
-
+i=1;
 while i <= S(1)
     disp('CL')
     disp(i)
