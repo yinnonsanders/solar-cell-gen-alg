@@ -1,8 +1,8 @@
 %  Jackie Loven, 17 March 2016
 
-matrix1 = ones(10, 10, 10, 11);
-matrix2 = ones(10, 10, 10, 11) * 0;
-matrix3 = ones(10, 10, 10, 11) * 2;
+matrix1 = ones(100, 100, 300, 11);
+matrix2 = ones(100, 100, 300) * 0;
+matrix3 = ones(100, 100, 300) * 2;
 %matrix4 = ones(10, 10, 10, 11) * 3;
 %matrix5 = ones(10, 10, 10, 11) * 1;
 
