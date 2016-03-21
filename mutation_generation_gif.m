@@ -2,11 +2,13 @@
 inputMatrix = zeros(10,10,30,11,10);
 
 % Generate some random matrices for generation 1
+tic;
 inputMatrix(:,:,:,1,1) = randi(3,10,10,30);
 inputMatrix(:,:,:,1,2) = randi(3,10,10,30);
 inputMatrix(:,:,:,1,3) = randi(3,10,10,30);
 inputMatrix(:,:,:,1,4) = randi(3,10,10,30);
 inputMatrix(:,:,:,1,5) = randi(3,10,10,30);
+toc
 
 generationSize = size(inputMatrix, 5);
 
