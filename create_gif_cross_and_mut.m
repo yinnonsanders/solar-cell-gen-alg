@@ -1,5 +1,5 @@
 %  Jackie Loven, 17 March 2016
-
+tic;
 generationSize = 3;
 
 generationCount = 2;
@@ -63,5 +63,6 @@ for gen = 1:size(generationList,2)
     %  Slow the gif down:
     pause(0.5)
 end
-    
+
+toc  
    
