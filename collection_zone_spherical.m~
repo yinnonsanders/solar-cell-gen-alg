@@ -35,9 +35,9 @@ while i <= S(1)
                 
                 %check for neighbors
                 for m = -d:d
-                    for n = -d:d
-                        for l = -d:d
-                            if k+l>d
+                        for n = -d:d
+                            for l = -d:d
+                                if k+l>d
                                 if m~=0 && n~=0 && l~=0 %if it is not the voxel analysed
                                     if ((i+m>0) && (i+m<=S(1)) && (j+n>0) && (j+n<=S(2)) && (k+l>0) && (k+l<=S(3)))%in the bounderies of the volume
                                         if system(i+m,j+n,k+l,1)==2 %if its a QD

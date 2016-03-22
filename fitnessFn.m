@@ -20,7 +20,7 @@ total = 0;
 for i=1:size(a,1)
     for j=1:size(a,2)
         for k=1:size(a,3)
-            if a(i,j,k,5)==1
+            if a(i,j,k,5)==1 && a(i,j,k,1)==2
             total=total+a(i,j,k,2);
             end
         end
