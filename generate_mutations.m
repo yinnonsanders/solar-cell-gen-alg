@@ -17,7 +17,7 @@ newMat = 1;
 for mat = 1:A(5)
     mutatedMatrix = matrixMutate(matrixList{1, mat}, A(1), tuner);
     mutatedFitnessFunction = fitnessFn(mutatedMatrix);
-    if newFitnessFunction > fitnessFunction(mat)
+    if mutatedFitnessFunction >= fitnessFunction(mat)
         % mutated matrix is better
         newMatrixList{1, newMat} = mutatedMatrix;
         newFitnessFunction(newMat) = mutatedFitnessFunction;
@@ -28,8 +28,5 @@ for mat = 1:A(5)
     end
     newMat = newMat + 1;
 end
-
-newMatrixList
-newFitnessFunction
     
 end

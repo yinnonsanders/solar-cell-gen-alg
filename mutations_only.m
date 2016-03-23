@@ -1,6 +1,6 @@
-generationSize = 5;
+generationSize = 1;
 
-generationCount = 10;
+generationCount = 3;
 
 matrixList = cell(1,generationSize);
 for i = 1:generationSize
