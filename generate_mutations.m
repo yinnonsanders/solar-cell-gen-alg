@@ -15,7 +15,7 @@ matrixIndices = randperm(A(5), floor(A(5) / 2 ));
 newMat = 1;
 
 for mat = 1:A(5)
-    mutatedMatrix = matrixMutate(matrixList{1, mat}, A(1), tuner);
+    mutatedMatrix = matrixMutate(matrixList{1, mat}, A(1) * A(2), tuner);
     mutatedFitnessFunction = fitnessFn(mutatedMatrix);
     if mutatedFitnessFunction >= fitnessFunction(mat)
         % mutated matrix is better
