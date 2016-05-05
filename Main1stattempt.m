@@ -12,7 +12,6 @@ EPD=xlsread(filename);
 %create a database that tells us how light carrying photones changes with
 %respect to distance traveled trough a specific material in our case QD
 Lightprop=Lightqd(EPD);
-
 %testing the Jsc of different thicknesses of flat solar cells
 
 %create a database that tells us how light carrying photones changes with
