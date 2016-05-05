@@ -51,8 +51,8 @@ hold on
 plot(x,y1)
 grid on
 xlabel('Thickness (nm)')
-ylabel('JSC (mA/cm^{2})')
-title('JSC Per Thickness of Solar Cell')
+ylabel('J_{SC} (mA/cm^{2})')
+title('J_{SC} Per Thickness of Solar Cell')
 legend('Egen0','Egen1')
 
     

@@ -7,7 +7,7 @@ i=thickness;
 
 %define the system architeture
 System = zeros(1,1,thickness,11);
-System(1,1,thickness,1)=2;
+System(1,1,1:thickness,1)=2;
 System(:,:,1,1)=1;
 S=size(System);
 
