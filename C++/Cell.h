@@ -58,8 +58,6 @@ public:
      * */
     // delete hole at specified location
     void deleteHole(double, double);
-    // delete hole at specified point in array
-    void deleteHole(int);
     // delete random hole
     void deleteHoleRand();
     // print attributes of all holes in cell
