@@ -2,13 +2,14 @@
 // Yinnon Sanders      20 September 2016
 //
 #include <string>
+#include <vector>
 #include "Hole.h"
 using namespace std;
 
 class Cell
 {
 private:
-    Hole * holeList;
+    vector<Hole> holeList;
     double efficiency;
     // utility function, cannot be accessed outside
     void computeEfficiency();
@@ -19,18 +20,18 @@ public:
     Cell(Cell);
     // return efficiency, compute if unknown
     double getEfficiency();
-    // return pointer to list of holes
-    Hole * getHoles();
+    // return list of holes
+    vector<Hole> getHoles();
     /* For the addHole function, at a minimum the location must be specified. If
      * the shape is omitted, the default shape, a circle, will be used. If the
      * radius is omitted, the default radius, to be determined, will be used.
      * The order is X, Y[, shape][, radius]
      * */
-    // add a hole with specified location, shape, and radius
+    // add a hole
     void addHole(double, double, Shape, double);
     // add a hole with default radius
-    void addHole(double, double, Shape);
-    // add a hole with default shape
+    void addHole(double, double, Shape = circle);
+    // add a hole with default shape (circle)
     void addHole(double, double, double);
     // add a hole with default shape and radius
     void addHole(double, double);

@@ -6,6 +6,7 @@
       <sourceFolder url="file://$MODULE_DIR$/Hole.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/CMakeLists.txt" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Cell.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/PaperTest.cpp" isTestSource="false" />
     </content>
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module-library">

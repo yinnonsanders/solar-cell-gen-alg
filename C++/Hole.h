@@ -13,15 +13,13 @@ private:
     double yPosition;
     Shape shape;
     double radius;
+    static const double defaultRadius = ?;
+    static const Shape defaultShape = circle;
 public:
     // initialize a Hole object
-    Hole(double, double, Shape, double);
+    Hole(double, double, Shape = defaultShape, double = defaultRadius);
     // initialize a Hole object with default shape (circle)
-    Hole(double, double, double);
-    // initialize a Hole object with default radius
-    Hole(double, double, Shape, double);
-    // initialize a Hole object with default shape and radius
-    Hole(double, double);
+    Hole(double, double, double = defaultRadius);
     // change x coordinate of hole
     void setX(double);
     // change y coordinate of hole
