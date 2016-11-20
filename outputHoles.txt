@@ -1,0 +1,41 @@
+--------------------------------------------------------------------------
+[[10201,1],1]: A high-performance Open MPI point-to-point messaging module
+was unable to find any relevant network interfaces:
+
+Module: OpenFabrics (openib)
+  Host: euca-128-84-11-54
+
+Another transport will be used instead, although this may result in
+lower performance.
+--------------------------------------------------------------------------
+Using MPI version 3.0, 12 processes
+-----------
+Initializing structure...
+Working in 3D dimensions.
+Computational cell is 8 x 8 x 5 with resolution 40
+     block, center = (0,0,0)
+          size (1e+20,1e+20,0.15)
+          axes (1,0,0), (0,1,0), (0,0,1)
+          dielectric constant epsilon diagonal = (12,12,12)
+subpixel-averaging is 20.9427% done, 15.2211 s remaining
+subpixel-averaging is 42.8958% done, 5.36892 s remaining
+subpixel-averaging is 68.2476% done, 1.86505 s remaining
+subpixel-averaging is 93.9667% done, 0.256871 s remaining
+subpixel-averaging is 63.0874% done, 2.35399 s remaining
+subpixel-averaging is 24.9842% done, 12.0497 s remaining
+subpixel-averaging is 50.0604% done, 4.01821 s remaining
+subpixel-averaging is 75.7796% done, 1.28266 s remaining
+subpixel-averaging is 53.1023% done, 3.5685 s remaining
+subpixel-averaging is 23.239% done, 13.2755 s remaining
+subpixel-averaging is 42.3447% done, 5.49683 s remaining
+subpixel-averaging is 67.6046% done, 1.93265 s remaining
+subpixel-averaging is 93.1401% done, 0.294711 s remaining
+subpixel-averaging is 62.4066% done, 2.43586 s remaining
+time for set_epsilon = 70.2192 s
+time for set_conductivity = 0.663496 s
+time for set_conductivity = 0.672223 s
+time for set_conductivity = 0.672225 s
+-----------
+--------------------------------------------------------------------------
+mpirun noticed that process rank 5 with PID 1572 on node euca-128-84-11-54 exited on signal 9 (Killed).
+--------------------------------------------------------------------------
