@@ -20,7 +20,7 @@ for i in xrange(1,300):
 	t = float(tflux) / float(emptytflux)
 	r = float(rflux) / float(emptyrflux)
 	a = 1 + t - r
-	f = float(freq)
+	f = .15 * float(freq)
 	absorptions.write("%.10f" % f)
 	absorptions.write("\t")
 	absorptions.write("%.10f" % a)

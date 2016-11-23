@@ -14,8 +14,8 @@
 
 ; Computation parameters
 (define-param res 40)	; Resolution
-(define-param fcen 1) ; Center frequency
-(define-param df 0.3)	; Frequency width
+(define-param fcen .9) ; Center frequency
+(define-param df 0.8)	; Frequency width
 (define-param nfreq 300); Frequency sampling
 (define-param time 1500) ; Computation time
 

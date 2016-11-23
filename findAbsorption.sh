@@ -5,6 +5,8 @@ IFS=$', '
 > freqs.txt
 > emptytfluxes.txt
 > emptyrfluxes.txt
+> tfluxes.txt
+> rfluxes.txt
 
 grep flux1 emptyOut.txt | while read -r line; do
 	linearray=($line)
