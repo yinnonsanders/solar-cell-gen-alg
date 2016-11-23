@@ -1,8 +1,8 @@
 ; MEEP script used to compute the total transmittance and reflectance from a slab containing a random pattern of holes
-; The hole positions (x,y) should be given in a tab-delimited text file (2 columns, N lines, with N the number of holes)
+; The hole positions and radius (x,y,r) should be given in a tab-delimited text file (3 columns, N lines, with N the number of holes)
 
 ; Author: Kevin Vynck
-; Last modification: January 20, 2012
+; Last modification: November 23, 2012 by Yinnon Sanders
 
 ; Related paper : K. Vynck, M. Burresi, F. Riboli, and D. S. Wiersma, "Photon management in two-dimensional disordered media", Nature Mater. 11, 1017 (2012).
 
@@ -14,8 +14,8 @@
 
 ; Computation parameters
 (define-param res 40)	; Resolution
-(define-param fcen .9) ; Center frequency
-(define-param df 0.8)	; Frequency width
+(define-param fcen 1) ; Center frequency
+(define-param df 0.3)	; Frequency width
 (define-param nfreq 300); Frequency sampling
 (define-param time 1500) ; Computation time
 
@@ -68,16 +68,18 @@
     (define port1 (open-input-file "rodpos.txt"))
     (define x 0)
     (define y 0)
+    (define r 0)
     (define (readfile) 
       (begin 
         (set! x (read port1))
         (set! y (read port1))
+        (set! r (read port1))
         (if (not (eof-object? x))
           (begin
             (set! geometry 
               (append geometry 
                 (list 
-                  (make cylinder (center x y) (height th) (radius radhole) (material air)))))				
+                  (make cylinder (center x y) (height th) (radius r) (material air)))))				
             (readfile)))))
     (readfile)
 ))
