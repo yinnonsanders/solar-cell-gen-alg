@@ -1,24 +1,22 @@
 //
-// Yinnon Sanders      20 September 2016
+// Yinnon Sanders      23 November 2016
 //
+
 #include <string>
 using namespace std;
 
-enum Shape { circle, square, triangle };
+const double defaultRadius = .200;
+const double maxX = 8.0;
+const double maxY = 8.0;
 
 class Hole
 {
 private:
-    double xPosition;
-    double yPosition;
-    Shape shape;
+    double xCoordinate;
+    double yCoordinate;
     double radius;
-    static const double defaultRadius = ?;
-    static const Shape defaultShape = circle;
 public:
     // initialize a Hole object
-    Hole(double, double, Shape = defaultShape, double = defaultRadius);
-    // initialize a Hole object with default shape (circle)
     Hole(double, double, double = defaultRadius);
     // change x coordinate of hole
     void setX(double);
@@ -26,16 +24,14 @@ public:
     void setY(double);
     // change radius of hole
     void setRadius(double);
-    // change shape of hole
-    void setShape(Shape);
     // return x coordinate of hole
     double getX();
     // return y coordinate of hole
     double getY();
     // return radius of hole
-    double getRadius(double);
-    // return shape of hole
-    Shape getShape(Shape);
+    double getRadius();
     // print attributes of hole
     void displayAttributes();
+    // check equality of holes
+    bool operator== (const Hole &);
 };
