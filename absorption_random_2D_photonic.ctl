@@ -1,4 +1,4 @@
-; MEEP script used to compute the total transmittance and reflectance from a slab containing a random pattern of holes
+; MEEP script used to compute the total transmittance and reflectance from a slab containing a pattern of holes
 ; The hole positions and radius (x,y,r) should be given in a tab-delimited text file (3 columns, N lines, with N the number of holes)
 
 ; Author: Kevin Vynck
@@ -9,21 +9,22 @@
 ;(set! eps-averaging? false)
 
 ; Empty space, slab or slab with holes
-(define-param no-struct? false)
-(define-param no-holes? false)
+(define-param NOSTRUCT false)
+(define-param NOHOLES false)
+
+(define-param RODPOS "rodpos.txt")
 
 ; Computation parameters
 (define-param res 40)	; Resolution
-(define-param fcen 1) ; Center frequency
-(define-param df 0.3)	; Frequency width
+(define-param fcen .9) ; Center frequency
+(define-param df 0.8)	; Frequency width
 (define-param nfreq 300); Frequency sampling
-(define-param time 1500) ; Computation time
+(define-param time 500) ; Computation time
 
 (define-param dPML 1)		; Thickness of PMLs
 (define-param H 5)		; Height of computational domain
-(define-param L 8)		; Lateral size of sample
+(define-param L 4)		; Lateral size of sample
 (define-param th 0.15)		; Thickness of sample
-(define-param radhole 0.200)	; Radius of holes
 
 (define-param epsre 12)		; Slab permittivity (real)
 ;(define-param epsim 0.012251882); Slab permittivity (imag) li=45
@@ -58,14 +59,14 @@
     (make block (material nothing)
       (center 0 0 0) (size infinity infinity th))))
 
-(if no-struct?
+(if NOSTRUCT
   (list (set! geometry empty))
   (list (set! geometry slab))
 )
 
-(if (not no-holes?)
+(if (not NOHOLES)
   (let () 
-    (define port1 (open-input-file "rodpos.txt"))
+    (define port1 (open-input-file RODPOS))
     (define x 0)
     (define y 0)
     (define r 0)
@@ -116,7 +117,7 @@
       (size sx sy 0))))
 
 ; Load flux without structure
-(if (not no-struct?) (load-minus-flux "refl-flux" refl))
+(if (not NOSTRUCT) (load-minus-flux "refl-flux" refl))
 
 ;(use-output-directory)
 
@@ -128,6 +129,6 @@
 )
 
 ; Save flux without structure
-(if no-struct? (save-flux "refl-flux" refl))
+(if NOSTRUCT (save-flux "refl-flux" refl))
 
 (display-fluxes refl trans)

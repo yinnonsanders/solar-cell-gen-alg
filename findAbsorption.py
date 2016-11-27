@@ -4,12 +4,18 @@
 
 __author__ = "Yinnon Sanders"
 
+import sys
+
+path=sys.argv[0]
 freqs = open("freqs.txt", "r")
 emptytfluxes = open("emptytfluxes.txt", "r")
 emptyrfluxes = open("emptyrfluxes.txt", "r")
-tfluxes = open("tfluxes.txt", "r")
-rfluxes = open("rfluxes.txt", "r")
-absorptions = open("absorptions.txt", "w")
+tfluxes = open(path + "/tfluxes.txt", "r")
+rfluxes = open(path + "/rfluxes.txt", "r")
+absorptions = open(path + "/absorptions.txt", "w")
+avgAbsorption = open(path + "/avgAbsorption.txt", "w")
+absorptionSum = 0
+absorptionCount = 0
 
 for i in xrange(1,300):
 	freq = freqs.readline()
@@ -25,3 +31,9 @@ for i in xrange(1,300):
 	absorptions.write("\t")
 	absorptions.write("%.10f" % a)
 	absorptions.write("\n")
+	absorptionSum += a
+	absorptionCount++
+
+aa = absorptionSum / absorptionCount
+avgAbsorption.write("%.10f" % aa)
+avgAbsorption.write("\n")

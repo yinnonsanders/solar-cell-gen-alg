@@ -6,12 +6,43 @@
 #include "Cell.h"
 using namespace std;
 
-// initialize a cell with no holes
+bool Cell::isTaken[MAXCELLS] = {false};
+
+// initialize a Cell object with no holes
 Cell::Cell()
 {
-    holeList = (Hole *) malloc(300 * sizeof(Hole));
     numHoles = 0;
     avgAbsorption = -1.0;
+    holeList = (Hole *) malloc(MAXHOLES * sizeof(Hole));
+    for (int i = 0; i < MAXCELLS; i++)
+    {
+        if (!isTaken[i])
+        {
+            ID = i;
+            isTaken[i] = true;
+            return;
+        }
+    }
+    throw invalid_argument("too many cells");
+}
+
+// initialize a Cell object from another (copy constructor)
+Cell::Cell(const Cell &obj)
+{
+   numHoles = obj.numHoles;
+   avgAbsorption = obj.avgAbsorption;
+   holeList = (Hole *) malloc(MAXHOLES * sizeof(Hole));
+   copy(obj.holeList, obj.holeList + numHoles, holeList);
+   for (int i = 0; i < MAXCELLS; i++)
+    {
+        if (!isTaken[i])
+        {
+            ID = i;
+            isTaken[i] = true;
+            return;
+        }
+    }
+    throw invalid_argument("too many cells");
 }
 
 // return efficiency, compute if unknown
@@ -30,28 +61,49 @@ Hole * Cell::getHoles()
     return holeList;
 }
 
+// return number of holes
+int Cell::getNumHoles()
+{
+    return numHoles;
+}
+
 // add a hole
 void Cell::addHole(double x, double y, double r)
 {
-    if (numHoles >= 300)
+    if (numHoles >= MAXHOLES)
     {
         throw invalid_argument("too many holes");
     }
     holeList[numHoles] = Hole(x,y,r);
     numHoles++;
+    avgAbsorption = -1.0;
+}
+
+// add a random hole
+// (true = random radius, false = default radius)
+void Cell::addRandomHole(bool randomRadius)
+{
+    if (numHoles >= MAXHOLES)
+    {
+        throw invalid_argument("too many holes");
+    }
+    holeList[numHoles] = Hole(randomRadius);
+    numHoles++;
+    avgAbsorption = -1.0;
 }
 
 // change a hole
-void Cell::setHole(Hole h, double x, double y, double r)
+void Cell::setHole(Hole* h, double x, double y, double r)
 {
     for (int i = 0; i < numHoles; i++)
     {
-        if (holeList[i] == h)
+        if (holeList + i == h)
         {
             // found hole to change
-            h.setX(x);
-            h.setY(y);
-            h.setRadius(r);
+            holeList[i].setX(x);
+            holeList[i].setY(y);
+            holeList[i].setRadius(r);
+            avgAbsorption = -1.0;
             return;
         }
     }
@@ -59,15 +111,16 @@ void Cell::setHole(Hole h, double x, double y, double r)
 }
 
 // delete hole
-void Cell::deleteHole(Hole h)
+void Cell::deleteHole(Hole* h)
 {
     for (int i = 0; i < numHoles; i++)
     {
-        if (holeList[i] == h)
+        if (holeList+ i == h)
         {
             // found hole to delete
             holeList[i] = holeList[numHoles - 1]; // replace with last hole
             numHoles--;
+            avgAbsorption = -1.0;
             return;
         }
     }
@@ -75,19 +128,19 @@ void Cell::deleteHole(Hole h)
 }
 
 // print attributes of all holes in cell
-void Cell::displayHoles()
+void Cell::print()
 {
     printf("There are %d holes in the cell:\n", numHoles);
     for (int i = 0; i < numHoles; i++)
     {
-        holeList[i].displayAttributes();
+        holeList[i].print();
     }
 }
 
 void Cell::computeAvgAbsorption()
 {
     ofstream rp;
-    rp.open("rodpos.txt", ios::out | ios::trunc);
+    rp.open("../files/" + to_string(ID) + "/rodpos.txt", ios::out | ios::trunc);
     for (int i = 0; i < numHoles; i++)
     {
         rp << holeList[i].getX() << "\t"
@@ -95,9 +148,9 @@ void Cell::computeAvgAbsorption()
            << holeList[i].getRadius() << "\n" << endl;
     }
     rp.close();
-    system("mpirun... > out.txt"); // run simulation
-    system("~/findAbsorption.sh out.txt"); // calculate absorptions
+    string cmd = "../../runParallel.sh " + to_string(ID);
+    system(cmd.c_str()); // run simulation
     ifstream aa;
-    rp.open("avgAbsorption.txt", ios::in);
+    aa.open("../files/" + to_string(ID) + "/avgAbsorption.txt", ios::in);
     aa >> avgAbsorption;
 }

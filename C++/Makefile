@@ -3,7 +3,7 @@ SOURCES = $(wildcard src/*.cpp)
 DEPS = $(wildcard src/*.h)
 OBJECTS = $(patsubst src/%.cpp, obj/%.o, $(SOURCES))
 OBJECTDEPS = $(patsubst src/%.h, obj/%.o, $(DEPS))
-TARGETS = bin/HoleTest
+TARGETS = bin/HoleTest bin/CellTest bin/VelocityTest bin/ParticleSwarm
 
 CC = g++
 FLAGS = -Wall
