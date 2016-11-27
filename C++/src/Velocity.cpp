@@ -91,6 +91,27 @@ void HoleVelocity::move(Hole* h)
 	h->setRadius(h->getRadius() + radiusVelocity);
 }
 
+HoleVelocity HoleVelocity::findDirection(Hole* h1, Hole* h2)
+{
+	return HoleVelocity(h2->getX() - h1->getX(),
+						h2->getY() - h1->getY(),
+						h2->getRadius() - h1->getRadius());
+}
+
+void HoleVelocity::multiplyByScalar(double scalar)
+{
+	setXVelocity(scalar * xVelocity);
+	setYVelocity(scalar * yVelocity);
+	setRadiusVelocity(scalar * radiusVelocity);
+}
+
+void HoleVelocity::addOtherVelocity(HoleVelocity* other)
+{
+	setXVelocity(xVelocity + other->getXVelocity());
+	setYVelocity(yVelocity + other->getYVelocity());
+	setRadiusVelocity(radiusVelocity + other->getRadiusVelocity());
+}
+
 // print attributes of hole velocity
 void HoleVelocity::print()
 {
@@ -184,6 +205,43 @@ void CellVelocity::move(Cell* c)
 	for (int i = 0; i < numHoleVelocities; i++)
 	{
 		holeVelocityList[i].move(hl + i);
+	}
+}
+
+CellVelocity CellVelocity::findDirection(Cell* c1, Cell* c2)
+{
+	if (c1->getNumHoles() != c2->getNumHoles())
+		throw invalid_argument(
+			"cannot find direction between cells with different numbers of holes");
+
+	CellVelocity cv();
+	Hole* hl1 = c1->getHoles();
+	Hole* hl2 = c2->getHoles();
+	for (int i = 0; i < c1->getNumHoles(); i++)
+	{
+		cv.addHoleVelocity(findDirection(&hl1[i], &hl2[i]));
+	}
+	return cv;
+}
+
+void CellVelocity::multiplyByScalar(double scalar)
+{
+	for (int i = 0; i < numHoleVelocities; i++)
+	{
+		holeVelocityList[i].multiplyByScalar(scalar);
+	}
+}
+
+void CellVelocity::addOtherVelocity(CellVelocity* other)
+{
+	if(other->getNumHoleVelocities() != numHoleVelocities)
+		throw invalid_argument(
+			"cell velocities with different numbers of hole velocities cannot be added");
+
+	HoleVelocity* hvlother = other->getHoleVelocities();
+	for (int i = 0; i < numHoleVelocities; i++)
+	{
+		holeVelocityList[i].addOtherVelocity(&hvlother[i]);
 	}
 }
 

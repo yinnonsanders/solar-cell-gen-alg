@@ -7,7 +7,7 @@ import random
 
 __author__ = "Yinnon Sanders"
 
-length = 8 # Lateral size of sample
+length = 4 # Lateral size of sample
 area = length**2 # Area of sample
 holeRadius = .200 # Radius of holes
 holeArea = math.pi * holeRadius**2

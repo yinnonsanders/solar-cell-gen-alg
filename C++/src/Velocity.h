@@ -38,7 +38,11 @@ public:
     // move a hole according to velocity
     void move(Hole*);
     // find direction from one hole to another
-    HoleVelocity findDirection(Hole*, Hole*)
+    HoleVelocity findDirection(Hole*, Hole*);
+    // multiply by scalar
+    void multiplyByScalar(double);
+    // add velocity
+    void addOtherVelocity(HoleVelocity*);
     // print attributes of hole velocity
     void print();
 };
@@ -66,6 +70,12 @@ public:
     void deleteHoleVelocity(HoleVelocity*);
     // move a cell according to velocity
     void move(Cell*);
+    // find direction from one cell to another
+    CellVelocity findDirection(Cell*, Cell*);
+    // multiply by scalar
+    void multiplyByScalar(double);
+    // add velocity
+    void addOtherVelocity(CellVelocity*);
     // print attributes of all hole velocities in cell
     void print();
 };

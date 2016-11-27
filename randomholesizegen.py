@@ -7,7 +7,7 @@ import random
 
 __author__ = "Yinnon Sanders"
 
-length = 8 # Lateral size of sample
+length = 4 # Lateral size of sample
 area = length**2 # Area of sample
 holeRadiusMu = .200 # Center of distribution of radii of holes
 holeRadiusSigma = .050 # Standard deviation of distribution of radii of holes

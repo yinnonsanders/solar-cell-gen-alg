@@ -28,8 +28,15 @@ using namespace std;
 #define HOLESPERCELL 10
 #define RANDOMRADIUS true
 #define OMEGA 0.9
-#define THETAPOSITION 0.1
-#define THETAGLOBAL 0.1
+#define THETAPARTICLE 0.1
+#define THETASWARM 0.1
+
+Cell particles[NUMPARTICLES];
+CellVelocity velocities[NUMPARTICLES];
+Cell* bestSwarmPosition = NULL;
+double bestSwarmAvgAbsorption = 0.0;
+Cell* bestParticlePositions[NUMPARTICLES];
+double bestParticleAvgAbsorptions[NUMPARTICLES];
 
 void *computeAvgAbsorption(void* ptr)
 {
@@ -38,16 +45,37 @@ void *computeAvgAbsorption(void* ptr)
 	pthread_exit(NULL);
 }
 
+void updateVelocity(int i)
+{
+	Cell* c = &particles[i];
+	CellVelocity* cv = &velocities[i];
+	CellVelocity bestParticleDirection = findDirection(c, bestParticlePositions[i]);
+	CellVelocity bestSwarmDirection = findDirection(c, bestSwarmPosition);
+	cv->multiplyByScalar(OMEGA);
+	cv->addOtherVelocity(bestParticleDirection.multiplyByScalar(THETAPARTICLE));
+	cv->addOtherVelocity(bestSwarmDirection.multiplyByScalar(THETASWARM));
+}
+
+void findBestPositions()
+{
+	for (int i = 0; i < NUMPARTICLES; i++)
+	{
+		if (particles[i].getAvgAbsorption() > bestParticleAvgAbsorptions[i])
+		{
+			bestParticleAvgAbsorptions[i] = particles[i].getAvgAbsorption();
+			bestParticlePositions[i] = &particles[i];
+			if(particles[i].getAvgAbsorption() > bestSwarmAvgAbsorption)
+			{
+				bestSwarmAvgAbsorption = particles[i].getAvgAbsorption();
+				bestSwarmPosition = &particles[i];
+			}
+		}
+	}
+}
+
 int main()
 {
 	pthread_t threads[NUMPARTICLES];
-
-	Cell particles[NUMPARTICLES];
-	CellVelocity velocities[NUMPARTICLES];
-	Cell* bestSwarmPosition = NULL;
-	double bestSwarmAvgAbsorption = 0.0;
-	Cell* bestParticlePositions[NUMPARTICLES];
-	double bestParticleAvgAbsorptions[NUMPARTICLES];
 
 	// initialize a cell with random holes
 	Cell initialCell;
@@ -67,6 +95,7 @@ int main()
 		velocities[i].move(&particles[i]);
 	}
 	
+	// compute average absorptions
 	for (int i = 0; i < NUMPARTICLES; i++)
 	{
 		pthread_create(&threads[i], NULL, computeAvgAbsorption, (void*) (&particles[i]));
@@ -75,18 +104,34 @@ int main()
 	for (int i = 0; i < NUMPARTICLES; i++)
 	{
 		pthread_join(threads[i], NULL);
-		if (particles[i].getAvgAbsorption() > bestParticleAvgAbsorptions[i])
-		{
-			bestParticleAvgAbsorptions[i] = particles[i].getAvgAbsorption();
-			bestParticlePositions[i] = &particles[i];
-			if(particles[i].getAvgAbsorption() > bestSwarmAvgAbsorption)
-			{
-				bestSwarmAvgAbsorption = particles[i].getAvgAbsorption();
-				bestSwarmPosition = &particles[i];
-			}
-		}
 	}
+
+	// find each particle's and overall swarm's best position
+	findBestPositions();
 
 	printf("Best Position = %.2f\n", bestSwarmAvgAbsorption);
 
+	while(TBD)
+	{
+		// update each particle's velocity and position
+		for (int i = 0; i < NUMPARTICLES; i++)
+		{
+			updateVelocity(i);
+			velocities[i].move(&particles[i]);
+		}
+
+		// compute average absorptions
+		for (int i = 0; i < NUMPARTICLES; i++)
+		{
+			pthread_create(&threads[i], NULL, computeAvgAbsorption, (void*) (&particles[i]));
+		}
+
+		for (int i = 0; i < NUMPARTICLES; i++)
+		{
+			pthread_join(threads[i], NULL);
+		}
+
+		// find each particle's and overall swarm's best position
+		findBestPositions();
+	}
 }
