@@ -37,6 +37,8 @@ public:
     double getRadiusVelocity();
     // move a hole according to velocity
     void move(Hole*);
+    // find direction from one hole to another
+    HoleVelocity findDirection(Hole*, Hole*)
     // print attributes of hole velocity
     void print();
 };
