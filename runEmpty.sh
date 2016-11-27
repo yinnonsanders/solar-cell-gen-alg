@@ -1,7 +1,5 @@
 #!/bin/bash
 
-NOSTRUCT=true
-NOHOLES=true
 IFS=$', '
 
 mpirun -np 12 meep-openmpi absorption_random_2D_photonic.ctl > empty.out

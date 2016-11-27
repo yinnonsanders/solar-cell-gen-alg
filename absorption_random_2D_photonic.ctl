@@ -9,10 +9,10 @@
 ;(set! eps-averaging? false)
 
 ; Empty space, slab or slab with holes
-(define-param NOSTRUCT false)
-(define-param NOHOLES false)
+(define-param no-struct false)
+(define-param no-holes false)
 
-(define-param RODPOS "rodpos.txt")
+(define-param rodpos "rodpos.txt")
 
 ; Computation parameters
 (define-param res 40)	; Resolution
@@ -59,14 +59,14 @@
     (make block (material nothing)
       (center 0 0 0) (size infinity infinity th))))
 
-(if NOSTRUCT
+(if no-struct
   (list (set! geometry empty))
   (list (set! geometry slab))
 )
 
-(if (not NOHOLES)
+(if (not no-holes)
   (let () 
-    (define port1 (open-input-file RODPOS))
+    (define port1 (open-input-file rodpos))
     (define x 0)
     (define y 0)
     (define r 0)
@@ -117,7 +117,7 @@
       (size sx sy 0))))
 
 ; Load flux without structure
-(if (not NOSTRUCT) (load-minus-flux "refl-flux" refl))
+(if (not no-struct) (load-minus-flux "refl-flux" refl))
 
 ;(use-output-directory)
 

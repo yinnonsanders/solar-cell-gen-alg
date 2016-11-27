@@ -10,8 +10,10 @@ ABSORPTIONS=$FOLDER/absorptions.txt
 AVGABSORPTIONS=$FOLDER/avgAbsorptions.txt
 IFS=$', '
 RODPOS=$FOLDER/rodpos.txt
+NOSTRUCT=true
+NOHOLES=true
 
-meep absorption_random_2D_photonic.ctl > $OUT
+meep absorption_random_2D_photonic.ctl no-struct=$NOSTRUCT no-holes=$NOHOLES rodpos=$RODPOS > $OUT
 
 > $TFLUXES
 > $RFLUXES
