@@ -9,8 +9,8 @@
 ;(set! eps-averaging? false)
 
 ; Empty space, slab or slab with holes
-(define-param no-struct false)
-(define-param no-holes false)
+(define-param no-struct true)
+(define-param no-holes true)
 
 (define-param rodpos "rodpos.txt")
 
@@ -129,6 +129,6 @@
 )
 
 ; Save flux without structure
-(if NOSTRUCT (save-flux "refl-flux" refl))
+(if no-struct (save-flux "refl-flux" refl))
 
 (display-fluxes refl trans)

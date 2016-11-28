@@ -1,7 +1,7 @@
 #!/bin/bash
 
 IFS=$', '
-
+ 
 mpirun -np 12 meep-openmpi absorption_random_2D_photonic.ctl > empty.out
 
 > freqs.txt
