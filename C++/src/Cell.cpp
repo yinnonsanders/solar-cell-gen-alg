@@ -159,7 +159,7 @@ void Cell::computeAvgAbsorption()
            << holeList[i].getRadius() << "\n" << endl;
     }
     rp.close();
-    string cmd = "../../runParallel.sh " + to_string(ID);
+    string cmd = "~/solar-cell-gen-alg/runParallel.sh " + to_string(ID);
     system(cmd.c_str()); // run simulation
     ifstream aa;
     aa.open("../files/" + to_string(ID) + "/avgAbsorption.txt", ios::in);

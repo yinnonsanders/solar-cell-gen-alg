@@ -5,6 +5,7 @@
 #include "Velocity.h"
 #include <cstdlib>
 #include <random>
+#include <stdexcept>
 using namespace std;
 
 // initialize a HoleVelocity object

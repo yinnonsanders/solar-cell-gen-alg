@@ -2,7 +2,8 @@
 
 # Input: number 1-11
 
-FOLDER=C++/files/$1
+SCDIR=~/solar-cell-gen-alg # change depending on file structure
+FOLDER=$SCDIR/C++/files/$1
 OUT=$FOLDER/meep.out
 TFLUXES=$FOLDER/tfluxes.txt
 RFLUXES=$FOLDER/rfluxes.txt
@@ -25,4 +26,4 @@ grep flux1 $OUT | while read -r line; do
 	echo ${linearray[3]} >> $RFLUXES
 done
 
-python findAbsorption.py $PATH
+python $SCDIR/findAbsorption.py $PATH

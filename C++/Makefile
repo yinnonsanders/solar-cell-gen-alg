@@ -6,7 +6,7 @@ OBJECTDEPS = $(patsubst src/%.h, obj/%.o, $(DEPS))
 TARGETS = bin/ParticleSwarm
 
 CC = g++
-FLAGS = -Wall
+FLAGS = -Wall -std=c++11 -pthread
 
 # 'make' or 'make all' compiles everything
 all: $(TARGETS)
