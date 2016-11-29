@@ -7,7 +7,7 @@
 using namespace std;
 
 #define MAXHOLES 300
-#define MAXCELLS 12
+#define MAXCELLS 24
 
 class Cell
 {
@@ -24,6 +24,8 @@ public:
     Cell();
     // initialize a Cell object from another (copy constructor)
     Cell(const Cell &obj);
+    // initialize a Cell object from another (assignment constructor)
+    Cell& operator=(const Cell& obj);
     // return efficiency, compute if unknown
     double getAvgAbsorption();
     // return list of holes

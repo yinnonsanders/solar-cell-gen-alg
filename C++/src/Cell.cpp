@@ -45,11 +45,31 @@ Cell::Cell(const Cell &obj)
     throw invalid_argument("too many cells");
 }
 
+// initialize a Cell object from another (assignment constructor)
+Cell& Cell::operator=(const Cell &obj)
+{
+   numHoles = obj.numHoles;
+   avgAbsorption = obj.avgAbsorption;
+   holeList = (Hole *) malloc(MAXHOLES * sizeof(Hole));
+   copy(obj.holeList, obj.holeList + numHoles, holeList);
+   for (int i = 0; i < MAXCELLS; i++)
+    {
+        if (!isTaken[i])
+        {
+            ID = i;
+            isTaken[i] = true;
+            return *this;
+        }
+    }
+    throw invalid_argument("too many cells");
+}
+
 // return efficiency, compute if unknown
 double Cell::getAvgAbsorption()
 {
     if (avgAbsorption == -1.0)
     {
+        printf("%d\n", ID);
         computeAvgAbsorption();
     }
     return avgAbsorption;
@@ -151,14 +171,21 @@ void Cell::print()
 void Cell::computeAvgAbsorption()
 {
     ofstream rp;
-    rp.open("../files/" + to_string(ID) + "/rodpos.txt", ios::out | ios::trunc);
-    for (int i = 0; i < numHoles; i++)
+    string rpFilepath = "/home/solar-cell-gen-alg/C++/files/" + to_string(ID) + "/rodpos.txt";
+    rp.open(rpFilepath, ios::out | ios::trunc);
+    if (rp.is_open())
     {
-        rp << holeList[i].getX() << "\t"
-           << holeList[i].getY() << "\t"
-           << holeList[i].getRadius() << "\n" << endl;
+        for (int i = 0; i < numHoles; i++)
+        {
+            rp << holeList[i].getX() << "\t"
+               << holeList[i].getY() << "\t"
+               << holeList[i].getRadius() << "\n" << endl;
+        }
+        rp.close();
     }
-    rp.close();
+    else printf("Unable to open file");
+    avgAbsorption = .00006;
+    return;
     string cmd = "~/solar-cell-gen-alg/runParallel.sh " + to_string(ID);
     system(cmd.c_str()); // run simulation
     ifstream aa;
