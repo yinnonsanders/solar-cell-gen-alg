@@ -7,7 +7,7 @@ __author__ = "Yinnon Sanders"
 import sys
 import csv
 
-path=sys.argv[0]
+path=sys.argv[1]
 freqs = open("freqs.txt", "r")
 emptytfluxes = open("emptytfluxes.txt", "r")
 emptyrfluxes = open("emptyrfluxes.txt", "r")
@@ -33,12 +33,11 @@ for i in xrange(1,300):
 	absorptions.write("%.10f" % f)
 	absorptions.write("\t")
 	absorptions.write("%.10f" % a)
-	absorptions.write("\n")
 	wavelength = int(100 / freq)
 	for row in AM15reader:
 		if row[0] = wavelength:
 			absorptionSum += a * row[1]
-	absorptionCount++
+	absorptionCount += 1
 
 aa = absorptionSum / absorptionCount
 avgAbsorption.write("%.10f" % aa)

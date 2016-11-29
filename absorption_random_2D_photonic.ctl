@@ -9,7 +9,7 @@
 ;(set! eps-averaging? false)
 
 ; Empty space, slab or slab with holes
-(define-param no-struct true)
+(define-param no-struct false)
 (define-param no-holes true)
 
 (define-param rodpos "rodpos.txt")
