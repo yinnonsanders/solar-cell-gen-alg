@@ -27,9 +27,9 @@ using namespace std;
 #define NUMPARTICLES 11
 #define HOLESPERCELL 10
 #define RANDOMRADIUS true
-#define OMEGA 0.9
-#define THETAPARTICLE 0.1
-#define THETASWARM 0.1
+#define OMEGA .5
+#define THETAPARTICLE 2.8
+#define THETASWARM 1.3
 
 Cell particles[NUMPARTICLES];
 CellVelocity velocities[NUMPARTICLES];
@@ -47,13 +47,16 @@ void *computeAvgAbsorption(void* ptr)
 
 void updateVelocity(int i)
 {
+	random_device rd;
+    mt19937 gen(rd());
+	uniform_real_distribution<double> unif(0, 1);
 	Cell* c = &particles[i];
 	CellVelocity* cv = &velocities[i];
 	CellVelocity bestParticleDirection = findDirection(c, bestParticlePositions[i]);
 	CellVelocity bestSwarmDirection = findDirection(c, bestSwarmPosition);
-	cv->multiplyByScalar(OMEGA);
-	cv->addOtherVelocity(bestParticleDirection.multiplyByScalar(THETAPARTICLE));
-	cv->addOtherVelocity(bestSwarmDirection.multiplyByScalar(THETASWARM));
+	cv->multiplyByScalar(OMEGA + unif(gen) / 2);
+	cv->addOtherVelocity(bestParticleDirection.multiplyByScalar(THETAPARTICLE * unif(gen)));
+	cv->addOtherVelocity(bestSwarmDirection.multiplyByScalar(THETASWARM * unif(gen)));
 }
 
 void findBestPositions()
