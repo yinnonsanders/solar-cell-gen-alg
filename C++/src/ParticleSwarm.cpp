@@ -5,6 +5,7 @@
 #include "Velocity.h"
 #include <cstdlib>
 #include <pthread.h>
+#include <random>
 using namespace std;
 
 /* 	for each particle i = 1, ..., S do
@@ -25,7 +26,7 @@ using namespace std;
  * */
 
 #define NUMPARTICLES 11
-#define HOLESPERCELL 10
+#define HOLESPERCELL 40
 #define RANDOMRADIUS true
 #define OMEGA .5
 #define THETAPARTICLE 2.8
@@ -52,17 +53,20 @@ void updateVelocity(int i)
 	uniform_real_distribution<double> unif(0, 1);
 	Cell* c = &particles[i];
 	CellVelocity* cv = &velocities[i];
-	CellVelocity bestParticleDirection = findDirection(c, bestParticlePositions[i]);
-	CellVelocity bestSwarmDirection = findDirection(c, bestSwarmPosition);
+	CellVelocity bestParticleDirection = CellVelocity::findDirection(c, bestParticlePositions[i]);
+	bestParticleDirection.multiplyByScalar(THETAPARTICLE * unif(gen));
+	CellVelocity bestSwarmDirection = CellVelocity::findDirection(c, bestSwarmPosition);
+	bestSwarmDirection.multiplyByScalar(THETASWARM * unif(gen));
 	cv->multiplyByScalar(OMEGA + unif(gen) / 2);
-	cv->addOtherVelocity(bestParticleDirection.multiplyByScalar(THETAPARTICLE * unif(gen)));
-	cv->addOtherVelocity(bestSwarmDirection.multiplyByScalar(THETASWARM * unif(gen)));
+	cv->addOtherVelocity(&bestParticleDirection);
+	cv->addOtherVelocity(&bestSwarmDirection);
 }
 
 void findBestPositions()
 {
 	for (int i = 0; i < NUMPARTICLES; i++)
 	{
+		printf("Particle %d has an average absorption of %.10f\n", i, particles[i].getAvgAbsorption());
 		if (particles[i].getAvgAbsorption() > bestParticleAvgAbsorptions[i])
 		{
 			bestParticleAvgAbsorptions[i] = particles[i].getAvgAbsorption();
@@ -74,6 +78,7 @@ void findBestPositions()
 			}
 		}
 	}
+	printf("Best average absorption so far is %.10f\n", bestSwarmAvgAbsorption);
 }
 
 int main()
@@ -87,6 +92,10 @@ int main()
 		initialCell.addRandomHole(RANDOMRADIUS);
 	}
 
+	printf("Initial cell created.\n");
+	initialCell.print();
+	printf("Creating particles...\n");
+
 	// create initial velocities and particles
 	for (int i = 0; i < NUMPARTICLES; i++)
 	{
@@ -98,6 +107,8 @@ int main()
 		velocities[i].move(&particles[i]);
 	}
 	
+	printf("Computing absorptions...\n");
+
 	// compute average absorptions
 	for (int i = 0; i < NUMPARTICLES; i++)
 	{
@@ -112,16 +123,18 @@ int main()
 	// find each particle's and overall swarm's best position
 	findBestPositions();
 
-	printf("Best Position = %.2f\n", bestSwarmAvgAbsorption);
-
-	while(TBD)
+	while(bestSwarmAvgAbsorption < .00005)
 	{
+		printf("Updating velocities and positions...\n");
+
 		// update each particle's velocity and position
 		for (int i = 0; i < NUMPARTICLES; i++)
 		{
 			updateVelocity(i);
 			velocities[i].move(&particles[i]);
 		}
+
+		printf("Computing absorptions...\n");
 
 		// compute average absorptions
 		for (int i = 0; i < NUMPARTICLES; i++)
@@ -137,4 +150,7 @@ int main()
 		// find each particle's and overall swarm's best position
 		findBestPositions();
 	}
+
+	printf("Cell optimization complete.\n");
+	bestSwarmPosition->print();
 }

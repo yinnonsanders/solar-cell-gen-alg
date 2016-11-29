@@ -38,7 +38,7 @@ public:
     // move a hole according to velocity
     void move(Hole*);
     // find direction from one hole to another
-    HoleVelocity findDirection(Hole*, Hole*);
+    static HoleVelocity findDirection(Hole*, Hole*);
     // multiply by scalar
     void multiplyByScalar(double);
     // add velocity
@@ -61,6 +61,7 @@ public:
     int getNumHoleVelocities();
     // add a hole velocity
     void addHoleVelocity(double = 0.0, double = 0.0, double = 0.0);
+    void addHoleVelocity(HoleVelocity);
     // add a random hole velocity
     // (true = random radius velocity, false = no radius velocity)
     void addRandomHoleVelocity(bool);
@@ -71,7 +72,7 @@ public:
     // move a cell according to velocity
     void move(Cell*);
     // find direction from one cell to another
-    CellVelocity findDirection(Cell*, Cell*);
+    static CellVelocity findDirection(Cell*, Cell*);
     // multiply by scalar
     void multiplyByScalar(double);
     // add velocity

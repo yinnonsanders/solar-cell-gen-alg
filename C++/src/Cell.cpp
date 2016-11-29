@@ -79,6 +79,17 @@ void Cell::addHole(double x, double y, double r)
     avgAbsorption = -1.0;
 }
 
+void Cell::addHole(Hole h)
+{
+    if (numHoles >= MAXHOLES)
+    {
+        throw invalid_argument("too many holes");
+    }
+    holeList[numHoles] = h;
+    numHoles++;
+    avgAbsorption = -1.0;
+}
+
 // add a random hole
 // (true = random radius, false = default radius)
 void Cell::addRandomHole(bool randomRadius)

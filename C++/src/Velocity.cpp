@@ -149,6 +149,16 @@ void CellVelocity::addHoleVelocity(double xv, double yv, double rv)
     numHoleVelocities++;
 }
 
+void CellVelocity::addHoleVelocity(HoleVelocity hv)
+{
+    if (numHoleVelocities >= MAXHOLES)
+    {
+        throw invalid_argument("too many hole velocities");
+    }
+    holeVelocityList[numHoleVelocities] = hv;
+    numHoleVelocities++;
+}
+
 // add a random hole velocity
 // (true = random radius velocity, false = no radius velocity)
 void CellVelocity::addRandomHoleVelocity(bool randomRadiusVelocity)
@@ -214,12 +224,12 @@ CellVelocity CellVelocity::findDirection(Cell* c1, Cell* c2)
 		throw invalid_argument(
 			"cannot find direction between cells with different numbers of holes");
 
-	CellVelocity cv();
+	CellVelocity cv;
 	Hole* hl1 = c1->getHoles();
 	Hole* hl2 = c2->getHoles();
 	for (int i = 0; i < c1->getNumHoles(); i++)
 	{
-		cv.addHoleVelocity(findDirection(&hl1[i], &hl2[i]));
+		cv.addHoleVelocity(HoleVelocity::findDirection(&hl1[i], &hl2[i]));
 	}
 	return cv;
 }

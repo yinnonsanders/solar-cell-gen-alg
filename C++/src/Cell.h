@@ -36,6 +36,7 @@ public:
      * */
     // add a hole
     void addHole(double, double, double = DEFAULTRADIUS);
+    void addHole(Hole h);
     // add a random hole
     // (true = random radius, false = default radius)
     void addRandomHole(bool);

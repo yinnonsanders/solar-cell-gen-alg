@@ -15,10 +15,10 @@ tfluxes = open(path + "/tfluxes.txt", "r")
 rfluxes = open(path + "/rfluxes.txt", "r")
 absorptions = open(path + "/absorptions.txt", "w")
 avgAbsorption = open(path + "/avgAbsorption.txt", "w")
-AM15 = open("AM15.txt", "rb")
+AM15 = open("AM15.txt", "rbU")
 AM15reader = csv.reader(AM15, delimiter = '\t', quoting=csv.QUOTE_NONNUMERIC)
-absorptionSum = 0
-absorptionCount = 0
+absorptionSum = 0.0
+absorptionCount = 0.0
 
 for i in xrange(1,300):
 	freq = freqs.readline()
@@ -28,15 +28,16 @@ for i in xrange(1,300):
 	rflux = rfluxes.readline()
 	t = float(tflux) / float(emptytflux)
 	r = float(rflux) / float(emptyrflux)
-	a = 1 + t - r
+	a = 1.0 + t - r
 	f = .15 * float(freq)
 	absorptions.write("%.10f" % f)
 	absorptions.write("\t")
 	absorptions.write("%.10f" % a)
-	wavelength = int(100 / freq)
+	absorptions.write("\n")
+	wavelength = int(100 / float(f))
 	for row in AM15reader:
-		if row[0] = wavelength:
-			absorptionSum += a * row[1]
+		if int(row[0]) == wavelength:
+			absorptionSum += a * float(row[1])
 	absorptionCount += 1
 
 aa = absorptionSum / absorptionCount
