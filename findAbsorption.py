@@ -8,9 +8,9 @@ import sys
 import csv
 
 path=sys.argv[1]
-freqs = open("freqs.txt", "r")
-emptytfluxes = open("emptytfluxes.txt", "r")
-emptyrfluxes = open("emptyrfluxes.txt", "r")
+freqs = open("/home/ubuntu/solar-cell-gen-alg/freqs.txt", "r")
+emptytfluxes = open("/home/ubuntu/solar-cell-gen-alg/emptytfluxes.txt", "r")
+emptyrfluxes = open("/home/ubuntu/solar-cell-gen-alg/emptyrfluxes.txt", "r")
 tfluxes = open(path + "/tfluxes.txt", "r")
 rfluxes = open(path + "/rfluxes.txt", "r")
 absorptions = open(path + "/absorptions.txt", "w")

@@ -1,0 +1,3 @@
+command-line param: no-struct=false
+command-line param: no-holes=false
+command-line param: rodpos="/home/ubuntu/solar-cell-gen-alg/C++/files/11/rodpos.txt"

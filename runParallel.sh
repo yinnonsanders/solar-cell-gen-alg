@@ -13,7 +13,8 @@ IFS=$', '
 NOSTRUCT=true
 NOHOLES=true
 
-meep absorption_random_2D_photonic.ctl no-struct=false no-holes=false rodpos="$FOLDER/rodpos.txt" > $OUT
+meep no-struct=false no-holes=false rodpos=\"$FOLDER/rodpos.txt\" $SCDIR/absorption_random_2D_photonic.ctl > $OUT
+
 
 > $TFLUXES
 > $RFLUXES
@@ -26,4 +27,4 @@ grep flux1 $OUT | while read -r line; do
 	echo ${linearray[3]} >> $RFLUXES
 done
 
-python $SCDIR/findAbsorption.py $PATH
+python $SCDIR/findAbsorption.py $FOLDER
