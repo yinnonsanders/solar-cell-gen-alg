@@ -8,7 +8,7 @@ OUT=$FOLDER/meep.out
 TFLUXES=$FOLDER/tfluxes.txt
 RFLUXES=$FOLDER/rfluxes.txt
 ABSORPTIONS=$FOLDER/absorptions.txt
-AVGABSORPTIONS=$FOLDER/avgAbsorptions.txt
+AVGABSORPTION=$FOLDER/avgAbsorption.txt
 IFS=$', '
 NOSTRUCT=true
 NOHOLES=true
@@ -19,7 +19,7 @@ meep no-struct=false no-holes=false rodpos=\"$FOLDER/rodpos.txt\" $SCDIR/absorpt
 > $TFLUXES
 > $RFLUXES
 > $ABSORPTIONS
-> $AVGABSORPTIONS
+> $AVGABSORPTION
 
 grep flux1 $OUT | while read -r line; do
 	linearray=($line)

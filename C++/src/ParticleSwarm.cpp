@@ -6,6 +6,7 @@
 #include <cstdlib>
 #include <pthread.h>
 #include <random>
+#include <stdio.h>
 using namespace std;
 
 /* 	for each particle i = 1, ..., S do
@@ -83,6 +84,8 @@ void findBestPositions()
 
 int main()
 {
+	freopen ("/home/ubuntu/solar-cell-gen-alg/C++/a.out", "w", stdout);
+
 	pthread_t threads[NUMPARTICLES];
 
 	// initialize a cell with random holes
@@ -153,4 +156,6 @@ int main()
 
 	printf("Cell optimization complete.\n");
 	bestSwarmPosition->print();
+
+	fclose(stdout);
 }
