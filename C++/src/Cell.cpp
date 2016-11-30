@@ -69,7 +69,6 @@ double Cell::getAvgAbsorption()
 {
     if (avgAbsorption == -1.0)
     {
-        printf("%d\n", ID);
         computeAvgAbsorption();
     }
     return avgAbsorption;
@@ -171,7 +170,7 @@ void Cell::print()
 void Cell::computeAvgAbsorption()
 {
     ofstream rp;
-    string rpFilepath = "/home/solar-cell-gen-alg/C++/files/" + to_string(ID) + "/rodpos.txt";
+    string rpFilepath = "/home/ubuntu/solar-cell-gen-alg/C++/files/" + to_string(ID) + "/rodpos.txt";
     rp.open(rpFilepath, ios::out | ios::trunc);
     if (rp.is_open())
     {
@@ -184,8 +183,6 @@ void Cell::computeAvgAbsorption()
         rp.close();
     }
     else printf("Unable to open file");
-    avgAbsorption = .00006;
-    return;
     string cmd = "~/solar-cell-gen-alg/runParallel.sh " + to_string(ID);
     system(cmd.c_str()); // run simulation
     ifstream aa;

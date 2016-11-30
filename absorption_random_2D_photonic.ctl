@@ -119,14 +119,8 @@
 ; Load flux without structure
 (if (not no-struct) (load-minus-flux "refl-flux" refl))
 
-;(use-output-directory)
-
 ;(run-sources+ (stop-when-fields-decayed 10 Ex (vector3 0 0 (+ (/ sz -2) (+ dPML 1))) 1e-4)
-(run-until time
-  (at-beginning output-epsilon)
-;  (at-every (/ 1 fcen 10) (in-volume (volume (center 0 0 0) (size sx sy 0)) (output-png Ex "-Zc bluered")))
-;  (at-every (/ 1 fcen 10) output-efield-x)
-)
+(run-until time)
 
 ; Save flux without structure
 (if no-struct (save-flux "refl-flux" refl))
