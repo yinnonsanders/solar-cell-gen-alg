@@ -84,7 +84,7 @@ void findBestPositions()
 
 int main()
 {
-	freopen ("/home/ubuntu/solar-cell-gen-alg/C++/a.out", "w", stdout);
+	freopen("/home/ubuntu/solar-cell-gen-alg/C++/a.out", "w", stdout);
 
 	pthread_t threads[NUMPARTICLES];
 

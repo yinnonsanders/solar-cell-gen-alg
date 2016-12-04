@@ -1,7 +1,5 @@
 #!/bin/bash
 
-# Input: number 1-11
-
 SCDIR=~/solar-cell-gen-alg # change depending on file structure
 FOLDER=$SCDIR/C++/files/$1
 OUT=$FOLDER/meep.out
