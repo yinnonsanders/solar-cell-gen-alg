@@ -43,6 +43,7 @@ void *computeAvgAbsorption(void* ptr)
 {
 	Cell* cellPtr = (Cell*) ptr;
 	cellPtr->getAvgAbsorption();
+	printf("Done finding average absorption...\n");
 	pthread_exit(NULL);
 }
 

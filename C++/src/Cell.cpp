@@ -186,6 +186,6 @@ void Cell::computeAvgAbsorption()
     string cmd = "~/solar-cell-gen-alg/runParallel.sh " + to_string(ID);
     system(cmd.c_str()); // run simulation
     ifstream aa;
-    aa.open("../files/" + to_string(ID) + "/avgAbsorption.txt", ios::in);
+    aa.open("/home/ubuntu/solar-cell-gen-alg/C++/files/" + to_string(ID) + "/avgAbsorption.txt", ios::in);
     aa >> avgAbsorption;
 }
