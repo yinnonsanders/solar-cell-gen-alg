@@ -74,6 +74,12 @@ double Cell::getAvgAbsorption()
     return avgAbsorption;
 }
 
+// reset efficiency
+void Cell::resetAvgAbsorption()
+{
+    avgAbsorption = -1.0;
+}
+
 // return list of holes
 Hole * Cell::getHoles()
 {

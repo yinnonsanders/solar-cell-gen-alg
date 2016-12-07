@@ -28,6 +28,8 @@ public:
     Cell& operator=(const Cell& obj);
     // return efficiency, compute if unknown
     double getAvgAbsorption();
+    // reset efficiency
+    void resetAvgAbsorption();
     // return list of holes
     Hole * getHoles();
     // return number of holes
