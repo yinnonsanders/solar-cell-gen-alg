@@ -124,7 +124,7 @@ int main()
 	// find each particle's and overall swarm's best position
 	findBestPositions();
 
-	while(bestSwarmAvgAbsorption < .00005)
+	while(bestSwarmAvgAbsorption < .001)
 	{
 		printf("Updating velocities and positions...\n");
 
