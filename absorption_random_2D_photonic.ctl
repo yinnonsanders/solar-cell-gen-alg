@@ -80,7 +80,7 @@
             (set! geometry 
               (append geometry 
                 (list 
-                  (make cylinder (center x y) (height th) (radius r) (material air)))))				
+                  (make block (center x y) (size .354 .354 .15) (material air)))))				
             (readfile)))))
     (readfile)
 ))

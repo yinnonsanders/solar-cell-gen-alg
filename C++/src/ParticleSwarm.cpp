@@ -26,7 +26,7 @@ using namespace std;
  * */
 
 #define NUMPARTICLES 11
-#define HOLESPERCELL 40
+#define HOLESPERCELL 30
 #define RANDOMRADIUS true
 #define OMEGA .5
 #define THETAPARTICLE 2.8
@@ -80,6 +80,7 @@ void findBestPositions()
 		}
 	}
 	printf("Best average absorption so far is %.10f\n", bestSwarmAvgAbsorption);
+	bestSwarmPosition->print();
 }
 
 int main()

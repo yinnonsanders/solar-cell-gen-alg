@@ -10,8 +10,8 @@ IFS=$', '
 
 grep flux1 $1.out | while read -r line; do
 	linearray=($line)
-	echo ${linearray[2]} >> $1/tfluxes.txt
-	echo ${linearray[3]} >> $1/rfluxes.txt
+	echo ${linearray[2]} >> $1/rfluxes.txt
+	echo ${linearray[3]} >> $1/tfluxes.txt
 done
 
 python findAbsorption.py "$1"

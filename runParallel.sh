@@ -11,7 +11,7 @@ IFS=$', '
 NOSTRUCT=true
 NOHOLES=true
 
-meep no-struct=false no-holes=false rodpos=\"$FOLDER/rodpos.txt\" $SCDIR/absorption_random_2D_photonic.ctl > $OUT
+mpirun -np 12 meep-openmpi no-struct=false no-holes=false rodpos=\"$FOLDER/rodpos.txt\" $SCDIR/absorption_random_2D_photonic.ctl > $OUT
 
 
 > $TFLUXES
@@ -21,8 +21,8 @@ meep no-struct=false no-holes=false rodpos=\"$FOLDER/rodpos.txt\" $SCDIR/absorpt
 
 grep flux1 $OUT | while read -r line; do
 	linearray=($line)
-	echo ${linearray[2]} >> $TFLUXES
-	echo ${linearray[3]} >> $RFLUXES
+	echo ${linearray[2]} >> $RFLUXES
+	echo ${linearray[3]} >> $TFLUXES
 done
 
 python $SCDIR/findAbsorption.py $FOLDER

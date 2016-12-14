@@ -36,9 +36,9 @@ Hole::Hole(bool randomRadius)
 void Hole::setX(double x)
 {
 	if (x < 0)
-		xCoordinate = 0;
+		setX(x + MAXCOORD);
 	else if (x > MAXCOORD)
-		x = MAXCOORD;
+		setX(x - MAXCOORD);
 	else
 		xCoordinate = x;
 }
@@ -47,9 +47,9 @@ void Hole::setX(double x)
 void Hole::setY(double y)
 {
 	if (y < 0)
-		yCoordinate = 0;
+		setY(y + MAXCOORD);
 	else if (y > MAXCOORD)
-		yCoordinate = MAXCOORD;
+		setY(y - MAXCOORD);
 	else
 		yCoordinate = y;
 }

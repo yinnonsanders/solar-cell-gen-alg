@@ -6,7 +6,7 @@
 using namespace std;
 
 #define MAXCOORDVELOCITY 1.0
-#define MAXRADIUSVELOCITY 0.02
+#define MAXRADIUSVELOCITY 0.05
 
 const double maxCoordVelocity = 1.0;
 const double maxRadiusVelocity = 0.02;
