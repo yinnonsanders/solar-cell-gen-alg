@@ -162,8 +162,9 @@ on time step 46 (time=0.575), 0.886577 s/step
 Meep progress: 0.6375000000000001/500.0 = 0.1% done in 61.8s, 48401.2s to go
 on time step 51 (time=0.6375), 0.860628 s/step
 Meep progress: 0.7000000000000001/500.0 = 0.1% done in 66.1s, 47180.6s to go
-on time step 56 (time=0.7), 0.871015 s/step
-Meep progress: 0.7625000000000001/500.0 = 0.2% done in 70.3s, 46018.2s to go
+on time step 56 (tAbort is in progress...hit ctrl-c again within 5 seconds to forcibly terminate
+
+ 70.3s, 46018.2s to go
 on time step 61 (time=0.7625), 0.827874 s/step
 Meep progress: 0.8250000000000001/500.0 = 0.2% done in 74.3s, 44960.8s to go
 on time step 66 (time=0.825), 0.804584 s/step
