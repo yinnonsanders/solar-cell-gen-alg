@@ -10,9 +10,10 @@
 
 ; Empty space, slab or slab with holes
 (define-param no-struct false)
-(define-param no-holes true)
+(define-param no-holes false)
 
 (define-param rodpos "rodpos.txt")
+(define-param cubepos "cubepos.txt")
 
 ; Computation parameters
 (define-param res 40)	; Resolution
@@ -80,10 +81,32 @@
             (set! geometry 
               (append geometry 
                 (list 
-                  (make block (center x y) (size .354 .354 .15) (material air)))))				
+                  (make cylinder (center x y) (radius r) (height .15) (material air)))))				
             (readfile)))))
     (readfile)
 ))
+
+(if (not no-holes)
+  (let () 
+    (define port2 (open-input-file cubepos))
+    (define x 0)
+    (define y 0)
+    (define a 0)
+    (define (readfile) 
+      (begin 
+        (set! x (read port2))
+        (set! y (read port2))
+        (set! a (read port2))
+        (if (not (eof-object? x))
+          (begin
+            (set! geometry 
+              (append geometry 
+                (list 
+                  (make block (center x y) (size a a .15) (material air)))))				
+            (readfile)))))
+    (readfile)
+))
+
 
 ; Perfectly Matched Layers
 (set! pml-layers (list (make pml (thickness dPML) (direction Z))))

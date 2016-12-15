@@ -2,10 +2,10 @@
 
 """randomholegen.py: modifies rodpos.txt to contain a list of random locations of holes"""
 
+__author__ = "Yinnon Sanders"
+
 import math
 import random
-
-__author__ = "Yinnon Sanders"
 
 length = 4 # Lateral size of sample
 area = length**2 # Area of sample

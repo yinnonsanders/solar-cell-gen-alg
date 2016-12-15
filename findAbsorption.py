@@ -7,7 +7,7 @@ __author__ = "Yinnon Sanders"
 import sys
 import csv
 
-path=sys.argv[1]
+path = sys.argv[1]
 freqs = open("/home/ubuntu/solar-cell-gen-alg/freqs.txt", "r")
 emptytfluxes = open("/home/ubuntu/solar-cell-gen-alg/emptytfluxes.txt", "r")
 emptyrfluxes = open("/home/ubuntu/solar-cell-gen-alg/emptyrfluxes.txt", "r")

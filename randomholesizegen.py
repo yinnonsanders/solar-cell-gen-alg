@@ -16,7 +16,7 @@ fillingFraction = .3 # Filling fraction of holes
 holeList = [] # List of holes
 
 class Hole(object):
-	"""Hole with x and y coordinates"""
+	"""Hole with x and y coordinates and radius"""
 
 	def __init__(self, x, y, r):
 		self.x = x
