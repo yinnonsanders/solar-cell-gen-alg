@@ -30,11 +30,11 @@ for i in xrange(1,300):
 	r = float(rflux) / float(emptyrflux)
 	a = 1.0 - t + r
 	f = .15 * float(freq)
-	absorptions.write("%.10f" % f)
+	wavelength = int(100 / float(f))
+	absorptions.write("%d" % wavelength)
 	absorptions.write("\t")
 	absorptions.write("%.10f" % a)
 	absorptions.write("\n")
-	wavelength = int(100 / float(f))
 	#for row in AM15reader:
 	#	if int(row[0]) == wavelength:
 	#		absorptionSum += a * float(row[1])
