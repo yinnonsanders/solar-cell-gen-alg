@@ -14,6 +14,7 @@
 
 (define-param rodpos "rodpos.txt")
 (define-param cubepos "cubepos.txt")
+(define-param rectpos "rectpos.txt")
 
 ; Computation parameters
 (define-param res 40)	; Resolution
