@@ -120,6 +120,7 @@
         (set! x (read port3))
         (set! y (read port3))
         (set! a (read port3))
+	(set! b (read port3))
         (if (not (eof-object? x))
           (begin
             (set! geometry 
