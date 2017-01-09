@@ -2,7 +2,7 @@
 ; The hole positions and radius (x,y,r) should be given in a tab-delimited text file (3 columns, N lines, with N the number of holes)
 
 ; Author: Kevin Vynck
-; Last modification: November 23, 2012 by Yinnon Sanders
+; Last modification: January 9, 2017 by Yinnon Sanders
 
 ; Related paper : K. Vynck, M. Burresi, F. Riboli, and D. S. Wiersma, "Photon management in two-dimensional disordered media", Nature Mater. 11, 1017 (2012).
 
