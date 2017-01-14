@@ -1,0 +1,57 @@
+--------------------------------------------------------------------------
+[[10116,1],0]: A high-performance Open MPI point-to-point messaging module
+was unable to find any relevant network interfaces:
+
+Module: OpenFabrics (openib)
+  Host: euca-128-84-11-54
+
+Another transport will be used instead, although this may result in
+lower performance.
+--------------------------------------------------------------------------
+Using MPI version 3.0, 12 processes
+command-line param: no-struct=false
+command-line param: no-holes=false
+command-line param: nfreq=8
+-----------
+Initializing structure...
+Working in 3D dimensions.
+Computational cell is 4 x 4 x 5 with resolution 40
+     block, center = (0,0,0)
+          size (1e+20,1e+20,0.15)
+          axes (1,0,0), (0,1,0), (0,0,1)
+          dielectric constant epsilon diagonal = (12,12,12)
+     block, center = (2,3,0)
+          size (4,0.28,0.15)
+          axes (1,0,0), (0,1,0), (0,0,1)
+          dielectric constant epsilon diagonal = (1,1,1)
+     block, center = (2,1,0)
+          size (4,0.28,0.15)
+          axes (1,0,0), (0,1,0), (0,0,1)
+          dielectric constant epsilon diagonal = (1,1,1)
+     block, center = (1,2,0)
+          size (0.28,4,0.15)
+          axes (1,0,0), (0,1,0), (0,0,1)
+          dielectric constant epsilon diagonal = (1,1,1)
+     block, center = (3,2,0)
+          size (0.28,4,0.15)
+          axes (1,0,0), (0,1,0), (0,0,1)
+          dielectric constant epsilon diagonal = (1,1,1)
+subpixel-averaging is 80.0177% done, 0.999049 s remaining
+subpixel-averaging is 56.3935% done, 3.10152 s remaining
+subpixel-averaging is 80.0177% done, 1.00105 s remaining
+subpixel-averaging is 56.7745% done, 3.07532 s remaining
+subpixel-averaging is 80.5621% done, 0.975542 s remaining
+subpixel-averaging is 56.7745% done, 3.06423 s remaining
+time for set_epsilon = 37.4675 s
+time for set_conductivity = 2.02065 s
+time for set_conductivity = 2.00451 s
+time for set_conductivity = 2.02423 s
+-----------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 0 in communicator MPI_COMM_WORLD 
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
