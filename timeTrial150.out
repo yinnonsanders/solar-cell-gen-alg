@@ -9,63 +9,41 @@ Computational cell is 4 x 4 x 5 with resolution 40
           size (1e+20,1e+20,0.15)
           axes (1,0,0), (0,1,0), (0,0,1)
           dielectric constant epsilon diagonal = (12,12,12)
-subpixel-averaging is 19.1974% done, 16.8984 s remaining
-subpixel-averaging is 40.232% done, 5.98952 s remaining
-subpixel-averaging is 63.8386% done, 2.28133 s remaining
-subpixel-averaging is 87.8125% done, 0.560699 s remaining
-subpixel-averaging is 24.7087% done, 12.2289 s remaining
-subpixel-averaging is 49.7849% done, 4.07896 s remaining
-subpixel-averaging is 74.4937% done, 1.37518 s remaining
-subpixel-averaging is 99.7536% done, 0.00990272 s remaining
-subpixel-averaging is 8.13717% done, 45.6222 s remaining
-subpixel-averaging is 16.4689% done, 20.4295 s remaining
-subpixel-averaging is 22.4664% done, 13.9528 s remaining
-subpixel-averaging is 29.9877% done, 9.36946 s remaining
-subpixel-averaging is 38.0924% done, 6.54476 s remaining
-subpixel-averaging is 46.2945% done, 4.66431 s remaining
-subpixel-averaging is 54.6586% done, 3.34761 s remaining
-subpixel-averaging is 62.8931% done, 2.37424 s remaining
-subpixel-averaging is 71.0303% done, 1.63622 s remaining
-subpixel-averaging is 79.1999% done, 1.05883 s remaining
-subpixel-averaging is 87.1426% done, 0.590866 s remaining
-subpixel-averaging is 95.5067% done, 0.189311 s remainsubpsubpixel-averaging is 23.0553% done, 13.3909 s remaining
-subpixel-averaging is 46.57% done, 4.64096 s remaining
-subpixel-averaging is 70.6358% done, 1.66422 s remaining
-subpixel-averaging is 93.783% done, 0.265682 s remaininsusubpixel-averaging is 24.1576% done, 12.6539 s remaining
-subpixel-averaging is 48.8663% done, 4.22776 s remaining
-subpixel-averaging is 69.8091% done, 1.73529 s remaining
-subpixel-averaging is 95.2527% done, 0.201146 s remainisubsubpixel-averaging is 8.07233% done, 45.7934 s remaining
-subpixel-averaging is 16.4365% done, 20.5645 s remaining
-subpixel-averaging is 24.7033% done, 12.2619 s remaining
-subpixel-averaging is 33.0026% done, 8.13826 s remaining
-subpixel-averaging is 41.464% done, 5.7089 s remaining
-subpixel-averaging is 48.3693% done, 4.29146 s remaining
-subpixel-averaging is 55.5015% done, 3.22594 s remaining
-subpixel-averaging is 63.5415% done, 2.30629 s remaining
-subpixel-averaging is 71.549% done, 1.59204 s remaining
-subpixel-averaging is 79.8483% done, 1.00979 s remaining
-subpixel-averaging is 87.8558% done, 0.556642 s remaining
-subpixel-averaging is 96.0578% done, 0.165323 s remainisubsubpixel-averaging is 24.0657% done, 12.6845 s remaining
-subpixel-averaging is 47.4885% done, 4.46778 s remaining
-subpixel-averaging is 70.1765% done, 1.71391 s remaining
-subpixel-averaging is 87.9044% done, 0.555366 s remaisubpisubpixel-averaging is 24.8924% done, 12.1287 s remaining
-subpixel-averaging is 49.7849% done, 4.0416 s remaining
-subpixel-averaging is 75.1366% done, 1.33712 s remaining
-subpixel-averaging is 8.59104% done, 43.0409 s remaining
-subpixel-averaging is 14.3941% done, 24.0531 s remaining
-subpixel-averaging is 21.9477% done, 14.2284 s remaining
-subpixel-averaging is 28.237% done, 10.2655 s remaining
-subpixel-averaging is 34.4939% done, 7.68529 s remaining
-subpixel-averaging is 42.9553% done, 5.32919 s remaining
-subpixel-averaging is 51.1898% done, 3.81518 s remaining
-subpixel-averaging is 59.6187% done, 2.7112 s remaining
-subpixel-averaging is 67.7559% done, 1.91671 s remaining
-subpixel-averaging is 76.1525% done, 1.25999 s remaining
-subpixel-averaging is 84.4194% done, 0.740519 s remaining
-subpixel-averaging is 92.7835% done, 0.312636 s remaining
-subpixel-averaging is 98.2948% done, 0.0694817 s remaining
-time for set_epsilon = 256.665 s
-time for set_conductivity = 3.99651 s
-time for set_conductivity = 3.63253 s
-time for set_conductivity = 4.08597 s
+subpixel-averaging is 41.0587% done, 5.74774 s remaining
+subpixel-averaging is 80.1886% done, 0.991307 s remaining
+subpixel-averaging is 36.1905% done, 7.09108 s remaining
+subpixel-averaging is 78.6271% done, 1.09408 s remaining
+subpixel-averaging is 13.9402% done, 24.7964 s remaining
+subpixel-averaging is 24.8654% done, 12.1009 s remaining
+subpixel-averaging is 37.8979% done, 6.58013 s remaining
+subpixel-averaging is 48.7259% done, 4.21685 s remaining
+subpixel-averaging is 61.5963% done, 2.49935 s remaining
+subpixel-averaging is 75.1475% done, 1.33059 s remaining
+subpixel-averaging is 88.796% done, 0.507147 s remaining
+subpixel-averaging is 39.2216% done, 6.21317 s remaining
+subpixel-averaging is 79.7293% done, 1.0189 s remaining
+subpixel-averaging is 42.0691% done, 5.50891 s remaining
+subpixel-averaging is 77.7086% done, 1.15311 s remaining
+subpixel-averaging is 14.0374% done, 24.5043 s remaining
+subpixel-averaging is 28.3991% done, 10.1269 s remaining
+subpixel-averaging is 42.5014% done, 5.4429 s remaining
+subpixel-averaging is 56.928% done, 3.03547 s remaining
+subpixel-averaging is 71.1599% done, 1.62635 s remaining
+subpixel-averaging is 85.0029% done, 0.705806 s remaining
+subpixel-averaging is 99.4294% done, 0.0230394 s remaining
+subpixel-averaging is 40.6913% done, 5.83848 s remaining
+subpixel-averaging is 79.5456% done, 1.03051 s remaining
+subpixel-averaging is 36.5579% done, 6.95932 s remaining
+subpixel-averaging is 79.6375% done, 1.02884 s remaining
+subpixel-averaging is 14.0374% done, 24.5397 s remaining
+subpixel-averaging is 28.3019% done, 10.1542 s remaining
+subpixel-averaging is 38.8381% done, 6.31289 s remaining
+subpixel-averaging is 51.6436% done, 3.80497 s remaining
+subpixel-averaging is 66.0701% done, 2.06438 s remaining
+subpixel-averaging is 79.4592% done, 1.03719 s remaining
+subpixel-averaging is 92.4269% done, 0.328486 s remaining
+time for set_epsilon = 153.823 s
+time for set_conductivity = 2.04227 s
+time for set_conductivity = 1.78165 s
+time for set_conductivity = 2.0161 s
 -----------
