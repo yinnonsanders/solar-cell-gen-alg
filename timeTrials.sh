@@ -3,20 +3,20 @@
 timeTrials=( 5 15 50 150 500)
 
 for i in ${timeTrials[@]}; do
-	mpirun -np 12 meep-openmpi no-struct=false no-holes=false time=$i light_mode.ctl > timeTrialHoles$i.out
+	mpirun -np 12 meep-openmpi no-struct=false no-holes=true time=$i light_mode.ctl > timeTrial$i.out
 
 	IFS=$', '
 
-	> timeTrialHoles$i/tfluxes.txt
-	> timeTrialHoles$i/rfluxes.txt
-	> timeTrialHoles$i/absorptions.txt
-	> timeTrialHoles$i/avgAbsorption.txt
+	> timeTrial$i/tfluxes.txt
+	> timeTrial$i/rfluxes.txt
+	> timeTrial$i/absorptions.txt
+	> timeTrial$i/avgAbsorption.txt
 
-	grep flux1 timeTrialHoles$i.out | while read -r line; do
+	grep flux1 timeTrial$i.out | while read -r line; do
 		linearray=($line)
-		echo ${linearray[2]} >> timeTrialHoles$i/rfluxes.txt
-		echo ${linearray[3]} >> timeTrialHoles$i/tfluxes.txt
+		echo ${linearray[2]} >> timeTrial$i/rfluxes.txt
+		echo ${linearray[3]} >> timeTrial$i/tfluxes.txt
 	done
 
-	python findAbsorption8.py timeTrialHoles$i
+	python findAbsorption8.py timeTrial$i
 done
