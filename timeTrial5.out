@@ -1,3 +1,14 @@
+--------------------------------------------------------------------------
+[[12178,1],0]: A high-performance Open MPI point-to-point messaging module
+was unable to find any relevant network interfaces:
+
+Module: OpenFabrics (openib)
+  Host: euca-128-84-11-54
+
+Another transport will be used instead, although this may result in
+lower performance.
+--------------------------------------------------------------------------
+Using MPI version 3.0, 12 processes
 command-line param: no-struct=false
 command-line param: no-holes=true
 command-line param: time=5
@@ -9,41 +20,71 @@ Computational cell is 4 x 4 x 5 with resolution 40
           size (1e+20,1e+20,0.15)
           axes (1,0,0), (0,1,0), (0,0,1)
           dielectric constant epsilon diagonal = (12,12,12)
-subpixel-averaging is 41.2424% done, 5.72775 s remaining
-subpixel-averaging is 80.9234% done, 0.943979 s remaining
-subpixel-averaging is 35.9149% done, 7.14525 s remaining
-subpixel-averaging is 78.5352% done, 1.0952 s remaining
-subpixel-averaging is 13.9402% done, 24.7174 s remaining
-subpixel-averaging is 25.0275% done, 11.9848 s remaining
-subpixel-averaging is 37.8655% done, 6.58106 s remaining
-subpixel-averaging is 48.888% done, 4.18234 s remaining
-subpixel-averaging is 61.5315% done, 2.50295 s remaining
-subpixel-averaging is 75.2448% done, 1.32248 s remaining
-subpixel-averaging is 88.958% done, 0.496647 s remaining
-subpixel-averaging is 39.4054% done, 6.17949 s remaining
-subpixel-averaging is 80.6479% done, 0.961802 s remaining
-subpixel-averaging is 41.8854% done, 5.57526 s remaining
-subpixel-averaging is 79.2701% done, 1.04974 s remaining
-subpixel-averaging is 14.005% done, 24.7043 s remaining
-subpixel-averaging is 28.0425% done, 10.2654 s remaining
-subpixel-averaging is 42.1772% done, 5.50485 s remaining
-subpixel-averaging is 56.6038% done, 3.08192 s remaining
-subpixel-averaging is 70.8358% done, 1.65323 s remaining
-subpixel-averaging is 84.7111% done, 0.724231 s remaining
-subpixel-averaging is 98.6189% done, 0.0563554 s remaining
-subpixel-averaging is 41.1506% done, 5.72741 s remaining
-subpixel-averaging is 80.556% done, 0.969526 s remaining
-subpixel-averaging is 35.9149% done, 7.13891 s remaining
-subpixel-averaging is 78.1678% done, 1.1185 s remaining
-subpixel-averaging is 14.232% done, 24.1143 s remaining
-subpixel-averaging is 28.6585% done, 9.95819 s remaining
-subpixel-averaging is 39.3892% done, 6.18759 s remaining
-subpixel-averaging is 52.2272% done, 3.6691 s remaining
-subpixel-averaging is 66.6861% done, 2.00591 s remaining
-subpixel-averaging is 80.4318% done, 0.974212 s remaining
-subpixel-averaging is 94.372% done, 0.239645 s remaining
-time for set_epsilon = 152.946 s
-time for set_conductivity = 2.30923 s
-time for set_conductivity = 1.82505 s
-time for set_conductivity = 1.99611 s
+subpixel-averaging is 85.3525% done, 0.689709 s remaining
+subpixel-averaging is 97.9268% done, 0.0852246 s remaining
+time for set_epsilon = 22.1168 s
+time for set_conductivity = 0.247602 s
+time for set_conductivity = 0.284461 s
+time for set_conductivity = 0.247616 s
 -----------
+Meep progress: 0.0125/5.0 = 0.2% done in 61.6s, 24570.4s to go
+on time step 1 (time=0.0125), 61.6003 s/step
+Meep progress: 0.225/5.0 = 4.5% done in 65.8s, 1396.4s to go
+on time step 18 (time=0.225), 0.247543 s/step
+Meep progress: 0.4375/5.0 = 8.8% done in 70.0s, 730.2s to go
+on time step 35 (time=0.4375), 0.249542 s/step
+Meep progress: 0.65/5.0 = 13.0% done in 74.3s, 497.1s to go
+on time step 52 (time=0.65), 0.248701 s/step
+Meep progress: 0.8625/5.0 = 17.2% done in 78.5s, 376.5s to go
+on time step 69 (time=0.8625), 0.249089 s/step
+Meep progress: 1.0625/5.0 = 21.2% done in 82.5s, 305.7s to go
+on time step 86 (time=1.075), 0.248909 s/step
+Meep progress: 1.2625000000000002/5.0 = 25.3% done in 86.5s, 256.1s to go
+on time step 103 (time=1.2875), 0.248999 s/step
+Meep progress: 1.4500000000000002/5.0 = 29.0% done in 90.5s, 221.7s to go
+on time step 118 (time=1.475), 0.271009 s/step
+Meep progress: 1.625/5.0 = 32.5% done in 94.6s, 196.5s to go
+on time step 132 (time=1.65), 0.289019 s/step
+Meep progress: 1.8375000000000001/5.0 = 36.8% done in 98.9s, 170.2s to go
+on time step 149 (time=1.8625), 0.248553 s/step
+Meep progress: 2.0375/5.0 = 40.8% done in 102.9s, 149.6s to go
+on time step 165 (time=2.0625), 0.250287 s/step
+Meep progress: 2.2375000000000003/5.0 = 44.8% done in 106.9s, 132.0s to go
+on time step 182 (time=2.275), 0.248816 s/step
+Meep progress: 2.4375/5.0 = 48.8% done in 110.9s, 116.6s to go
+on time step 199 (time=2.4875), 0.247846 s/step
+Meep progress: 2.6500000000000004/5.0 = 53.0% done in 115.1s, 102.1s to go
+on time step 215 (time=2.6875), 0.262163 s/step
+Meep progress: 2.85/5.0 = 57.0% done in 119.3s, 90.0s to go
+on time step 232 (time=2.9), 0.238757 s/step
+Meep progress: 3.075/5.0 = 61.5% done in 123.3s, 77.2s to go
+on time step 251 (time=3.1375), 0.221118 s/step
+Meep progress: 3.3125/5.0 = 66.2% done in 127.5s, 64.9s to go
+on time step 268 (time=3.35), 0.245826 s/step
+Meep progress: 3.4875000000000003/5.0 = 69.8% done in 131.5s, 57.0s to go
+on time step 283 (time=3.5375), 0.279314 s/step
+Meep progress: 3.6625/5.0 = 73.2% done in 135.7s, 49.6s to go
+on time step 297 (time=3.7125), 0.297255 s/step
+Meep progress: 3.8375000000000004/5.0 = 76.8% done in 139.7s, 42.3s to go
+on time step 312 (time=3.9), 0.270612 s/step
+Meep progress: 4.05/5.0 = 81.0% done in 144.0s, 33.8s to go
+on time step 329 (time=4.1125), 0.249173 s/step
+Meep progress: 4.25/5.0 = 85.0% done in 148.0s, 26.1s to go
+on time step 345 (time=4.3125), 0.250399 s/step
+Meep progress: 4.4625/5.0 = 89.2% done in 152.2s, 18.3s to go
+on time step 362 (time=4.525), 0.248742 s/step
+Meep progress: 4.675/5.0 = 93.5% done in 156.5s, 10.9s to go
+on time step 379 (time=4.7375), 0.247419 s/step
+Meep progress: 4.875/5.0 = 97.5% done in 160.5s, 4.1s to go
+on time step 394 (time=4.925), 0.268084 s/step
+run 0 finished at t = 5.0 (400 timesteps)
+flux1:, 0.5, 5.059457095942531e-4, -0.00385292557980525
+flux1:, 0.7857142857142857, 0.001677385761704697, -0.0076646461603531325
+flux1:, 1.0714285714285714, 0.013583305043721535, -0.02074367399418632
+flux1:, 1.3571428571428572, 0.05105686732476257, -0.04137660603324039
+flux1:, 1.6428571428571428, 0.058939995182244326, -0.04385388636713079
+flux1:, 1.9285714285714284, 0.019165154202824924, -0.02410133974758486
+flux1:, 2.214285714285714, 0.0014630246429379189, -0.00822741005656816
+flux1:, 2.4999999999999996, 4.0309786220928893e-4, -0.0026812381293665503
+
+Elapsed run time = 194.55 s
