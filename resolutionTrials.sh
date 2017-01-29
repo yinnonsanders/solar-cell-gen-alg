@@ -18,5 +18,5 @@ for i in ${resolutions[@]}; do
 		echo ${linearray[3]} >> resolutionTrial$i/tfluxes.txt
 	done
 
-	python findAbsorption.py resolutionTrial$i
+	python findAbsorption8.py resolutionTrial$i
 done
