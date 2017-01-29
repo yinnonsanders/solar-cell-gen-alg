@@ -1,6 +1,6 @@
 #!/bin/bash
 
-timeTrials=( 5, 15, 50, 150, 500, 1500)
+timeTrials=( 5 15 50 150 500 1500)
 
 for i in ${timeTrials[@]}; do
 	mpirun -np 12 meep-openmpi no-struct=false no-holes=false time=$i absorption_random_2D_photonic.ctl > timeTrial$i.out &
