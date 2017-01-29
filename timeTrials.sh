@@ -3,8 +3,8 @@
 timeTrials=( 5 15 50 150 500 1500)
 
 for i in ${timeTrials[@]}; do
-	mpirun -np 12 meep-openmpi no-struct=false no-holes=true time=$i absorption_random_2D_photonic.ctl > timeTrial$i.out
-	
+	mpirun -np 12 meep-openmpi no-struct=false no-holes=true time=$i light_mode.ctl > timeTrial$i.out
+
 	IFS=$', '
 
 	> timeTrial$i/tfluxes.txt
@@ -12,7 +12,7 @@ for i in ${timeTrials[@]}; do
 	> timeTrial$i/absorptions.txt
 	> timeTrial$i/avgAbsorption.txt
 
-	grep flux1 $1.out | while read -r line; do
+	grep flux1 timeTrial$i.out | while read -r line; do
 		linearray=($line)
 		echo ${linearray[2]} >> timeTrial$i/rfluxes.txt
 		echo ${linearray[3]} >> timeTrial$i/tfluxes.txt
