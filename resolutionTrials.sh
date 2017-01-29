@@ -1,14 +1,10 @@
 #!/bin/bash
 
-timeTrials=( 5 15 50 150 500 1500)
+resolutions=( 5 10 20 30 40)
 
-for i in ${timeTrials[@]}; do
-	meep no-struct=false no-holes=true time=$i absorption_random_2D_photonic.ctl > timeTrial$i.out &
-done
+for i in ${resolutions[@]}; do
+	mpirun -np 12 meep-openmpi no-struct=false no-holes=true time=1500 res=$i absorption_random_2D_photonic.ctl > timeTrial$i.out
 
-wait
-
-for i in ${timeTrials[@]}; do
 	IFS=$', '
 
 	> timeTrial$i/tfluxes.txt
