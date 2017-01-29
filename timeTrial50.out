@@ -1,0 +1,152 @@
+--------------------------------------------------------------------------
+[[10508,1],2]: A high-performance Open MPI point-to-point messaging module
+was unable to find any relevant network interfaces:
+
+Module: OpenFabrics (openib)
+  Host: euca-128-84-11-54
+
+Another transport will be used instead, although this may result in
+lower performance.
+--------------------------------------------------------------------------
+Using MPI version 3.0, 12 processes
+command-line param: no-struct=false
+command-line param: no-holes=false
+command-line param: time=50
+-----------
+Initializing structure...
+Working in 3D dimensions.
+Computational cell is 4 x 4 x 5 with resolution 40
+     block, center = (0,0,0)
+          size (1e+20,1e+20,0.15)
+          axes (1,0,0), (0,1,0), (0,0,1)
+          dielectric constant epsilon diagonal = (12,12,12)
+     cylinder, center = (0.4,0.4,0)
+          radius 0.3, height 0.15, axis (0, 0, 1)
+          dielectric constant epsilon diagonal = (1,1,1)
+     cylinder, center = (1.2,0.4,0)
+          radius 0.3, height 0.15, axis (0, 0, 1)
+          dielectric constant epsilon diagonal = (1,1,1)
+     cylinder, center = (2,0.4,0)
+          radius 0.3, height 0.15, axis (0, 0, 1)
+          dielectric constant epsilon diagonal = (1,1,1)
+     cylinder, center = (2.8,0.4,0)
+          radius 0.3, height 0.15, axis (0, 0, 1)
+          dielectric constant epsilon diagonal = (1,1,1)
+     cylinder, center = (3.6,0.4,0)
+          radius 0.3, height 0.15, axis (0, 0, 1)
+          dielectric constant epsilon diagonal = (1,1,1)
+     cylinder, center = (0.4,1.8,0)
+          radius 0.3, height 0.15, axis (0, 0, 1)
+          dielectric constant epsilon diagonal = (1,1,1)
+     cylinder, center = (1.2,1.8,0)
+          radius 0.3, height 0.15, axis (0, 0, 1)
+          dielectric constant epsilon diagonal = (1,1,1)
+     cylinder, center = (2,1.8,0)
+          radius 0.3, height 0.15, axis (0, 0, 1)
+          dielectric constant epsilon diagonal = (1,1,1)
+     cylinder, center = (2.8,1.8,0)
+          radius 0.3, height 0.15, axis (0, 0, 1)
+          dielectric constant epsilon diagonal = (1,1,1)
+     cylinder, center = (3.6,1.8,0)
+          radius 0.3, height 0.15, axis (0, 0, 1)
+          dielectric constant epsilon diagonal = (1,1,1)
+     cylinder, center = (0.4,3.2,0)
+          radius 0.3, height 0.15, axis (0, 0, 1)
+          dielectric constant epsilon diagonal = (1,1,1)
+     cylinder, center = (1.2,3.2,0)
+          radius 0.3, height 0.15, axis (0, 0, 1)
+          dielectric constant epsilon diagonal = (1,1,1)
+     cylinder, center = (2,3.2,0)
+          radius 0.3, height 0.15, axis (0, 0, 1)
+          dielectric constant epsilon diagonal = (1,1,1)
+     cylinder, center = (2.8,3.2,0)
+          radius 0.3, height 0.15, axis (0, 0, 1)
+          dielectric constant epsilon diagonal = (1,1,1)
+     cylinder, center = (3.6,3.2,0)
+          radius 0.3, height 0.15, axis (0, 0, 1)
+          dielectric constant epsilon diagonal = (1,1,1)
+     cylinder, center = (0.8,1.1,0)
+          radius 0.3, height 0.15, axis (0, 0, 1)
+          dielectric constant epsilon diagonal = (1,1,1)
+     cylinder, center = (1.6,1.1,0)
+          radius 0.3, height 0.15, axis (0, 0, 1)
+          dielectric constant epsilon diagonal = (1,1,1)
+     cylinder, center = (2.4,1.1,0)
+          radius 0.3, height 0.15, axis (0, 0, 1)
+          dielectric constant epsilon diagonal = (1,1,1)
+     cylinder, center = (3.2,1.1,0)
+          radius 0.3, height 0.15, axis (0, 0, 1)
+          dielectric constant epsilon diagonal = (1,1,1)
+     cylinder, center = (0.8,3.5,0)
+          radius 0.3, height 0.15, axis (0, 0, 1)
+          dielectric constant epsilon diagonal = (1,1,1)
+     cylinder, center = (1.6,3.5,0)
+          radius 0.3, height 0.15, axis (0, 0, 1)
+          dielectric constant epsilon diagonal = (1,1,1)
+     cylinder, center = (2.4,3.5,0)
+          radius 0.3, height 0.15, axis (0, 0, 1)
+          dielectric constant epsilon diagonal = (1,1,1)
+     cylinder, center = (3.2,3.5,0)
+          radius 0.3, height 0.15, axis (0, 0, 1)
+          dielectric constant epsilon diagonal = (1,1,1)
+subpixel-averaging is 13.608% done, 25.8581 s remaining
+subpixel-averaging is 27.2166% done, 10.6999 s remaining
+subpixel-averaging is 40.2808% done, 5.99764 s remaining
+subpixel-averaging is 53.8893% done, 3.45123 s remaining
+subpixel-averaging is 66.9535% done, 1.99041 s remaining
+subpixel-averaging is 80.5621% done, 0.987764 s remaining
+subpixel-averaging is 94.1706% done, 0.250676 s remaining
+subpixel-averaging is 8.76353% done, 42.1029 s remaining
+subpixel-averaging is 17.9085% done, 18.509 s remaining
+subpixel-averaging is 27.4345% done, 10.9125 s remaining
+subpixel-averaging is 36.1984% done, 7.08648 s remaining
+subpixel-averaging is 45.3433% done, 4.94828 s remaining
+subpixel-averaging is 52.5831% done, 3.63319 s remaining
+subpixel-averaging is 61.728% done, 2.573 s remaining
+subpixel-averaging is 70.873% done, 1.66275 s remaining
+subpixel-averaging is 79.6369% done, 1.03514 s remaining
+subpixel-averaging is 88.7818% done, 0.517156 s remaining
+subpixel-averaging is 97.9268% done, 0.0855546 s remaining
+subpixel-averaging is 13.608% done, 25.5954 s remaining
+subpixel-averaging is 27.2166% done, 10.7933 s remaining
+subpixel-averaging is 41.3695% done, 5.99283 s remaining
+subpixel-averaging is 54.978% done, 3.30935 s remaining
+subpixel-averaging is 68.5866% done, 1.85046 s remaining
+subpixel-averaging is 82.7395% done, 0.88821 s remaining
+subpixel-averaging is 96.348% done, 0.152716 s remaining
+subpixel-averaging is 8.76353% done, 42.0368 s remaining
+subpixel-averaging is 17.9085% done, 18.6383 s remaining
+subpixel-averaging is 27.0534% done, 10.8938 s remaining
+subpixel-averaging is 35.8173% done, 7.26853 s remaining
+subpixel-averaging is 45.3433% done, 5.14501 s remaining
+subpixel-averaging is 54.4883% done, 3.38186 s remaining
+subpixel-averaging is 63.6332% done, 2.31652 s remaining
+subpixel-averaging is 73.1592% done, 1.56923 s remaining
+subpixel-averaging is 82.3041% done, 0.867318 s remaining
+subpixel-averaging is 91.4491% done, 0.384792 s remaining
+subpixel-averaging is 13.608% done, 25.6489 s remaining
+subpixel-averaging is 27.2166% done, 10.7851 s remaining
+subpixel-averaging is 40.8251% done, 5.86752 s remaining
+subpixel-averaging is 54.4337% done, 3.3667 s remaining
+subpixel-averaging is 68.0422% done, 1.89939 s remaining
+subpixel-averaging is 81.6508% done, 0.905569 s remaining
+subpixel-averaging is 95.2593% done, 0.203655 s remaining
+subpixel-averaging is 8.76353% done, 42.0772 s remaining
+subpixel-averaging is 16.3843% done, 21.5861 s remaining
+subpixel-averaging is 24.7672% done, 12.8208 s remaining
+subpixel-averaging is 33.9121% done, 7.86127 s remaining
+subpixel-averaging is 42.295% done, 5.50683 s remaining
+subpixel-averaging is 51.4399% done, 3.83299 s remaining
+subpixel-averaging is 60.5849% done, 2.61878 s remaining
+subpixel-averaging is 69.7298% done, 1.7941 s remaining
+subpixel-averaging is 78.8748% done, 1.07939 s remaining
+subpixel-averaging is 86.8766% done, 0.609053 s remaining
+subpixel-averaging is 94.1164% done, 0.253069 s remaining
+time for set_epsilon = 230.818 s
+time for set_conductivity = 2.01994 s
+time for set_conductivity = 2.1974 s
+time for set_conductivity = 2.29663 s
+-----------
+--------------------------------------------------------------------------
+mpirun noticed that process rank 1 with PID 2265 on node euca-128-84-11-54 exited on signal 9 (Killed).
+--------------------------------------------------------------------------

@@ -1,0 +1,171 @@
+--------------------------------------------------------------------------
+[[10509,1],1]: A high-performance Open MPI point-to-point messaging module
+was unable to find any relevant network interfaces:
+
+Module: OpenFabrics (openib)
+  Host: euca-128-84-11-54
+
+Another transport will be used instead, although this may result in
+lower performance.
+--------------------------------------------------------------------------
+Using MPI version 3.0, 12 processes
+command-line param: no-struct=false
+command-line param: no-holes=false
+command-line param: time=150
+-----------
+Initializing structure...
+Working in 3D dimensions.
+Computational cell is 4 x 4 x 5 with resolution 40
+     block, center = (0,0,0)
+          size (1e+20,1e+20,0.15)
+          axes (1,0,0), (0,1,0), (0,0,1)
+          dielectric constant epsilon diagonal = (12,12,12)
+     cylinder, center = (0.4,0.4,0)
+          radius 0.3, height 0.15, axis (0, 0, 1)
+          dielectric constant epsilon diagonal = (1,1,1)
+     cylinder, center = (1.2,0.4,0)
+          radius 0.3, height 0.15, axis (0, 0, 1)
+          dielectric constant epsilon diagonal = (1,1,1)
+     cylinder, center = (2,0.4,0)
+          radius 0.3, height 0.15, axis (0, 0, 1)
+          dielectric constant epsilon diagonal = (1,1,1)
+     cylinder, center = (2.8,0.4,0)
+          radius 0.3, height 0.15, axis (0, 0, 1)
+          dielectric constant epsilon diagonal = (1,1,1)
+     cylinder, center = (3.6,0.4,0)
+          radius 0.3, height 0.15, axis (0, 0, 1)
+          dielectric constant epsilon diagonal = (1,1,1)
+     cylinder, center = (0.4,1.8,0)
+          radius 0.3, height 0.15, axis (0, 0, 1)
+          dielectric constant epsilon diagonal = (1,1,1)
+     cylinder, center = (1.2,1.8,0)
+          radius 0.3, height 0.15, axis (0, 0, 1)
+          dielectric constant epsilon diagonal = (1,1,1)
+     cylinder, center = (2,1.8,0)
+          radius 0.3, height 0.15, axis (0, 0, 1)
+          dielectric constant epsilon diagonal = (1,1,1)
+     cylinder, center = (2.8,1.8,0)
+          radius 0.3, height 0.15, axis (0, 0, 1)
+          dielectric constant epsilon diagonal = (1,1,1)
+     cylinder, center = (3.6,1.8,0)
+          radius 0.3, height 0.15, axis (0, 0, 1)
+          dielectric constant epsilon diagonal = (1,1,1)
+     cylinder, center = (0.4,3.2,0)
+          radius 0.3, height 0.15, axis (0, 0, 1)
+          dielectric constant epsilon diagonal = (1,1,1)
+     cylinder, center = (1.2,3.2,0)
+          radius 0.3, height 0.15, axis (0, 0, 1)
+          dielectric constant epsilon diagonal = (1,1,1)
+     cylinder, center = (2,3.2,0)
+          radius 0.3, height 0.15, axis (0, 0, 1)
+          dielectric constant epsilon diagonal = (1,1,1)
+     cylinder, center = (2.8,3.2,0)
+          radius 0.3, height 0.15, axis (0, 0, 1)
+          dielectric constant epsilon diagonal = (1,1,1)
+     cylinder, center = (3.6,3.2,0)
+          radius 0.3, height 0.15, axis (0, 0, 1)
+          dielectric constant epsilon diagonal = (1,1,1)
+     cylinder, center = (0.8,1.1,0)
+          radius 0.3, height 0.15, axis (0, 0, 1)
+          dielectric constant epsilon diagonal = (1,1,1)
+     cylinder, center = (1.6,1.1,0)
+          radius 0.3, height 0.15, axis (0, 0, 1)
+          dielectric constant epsilon diagonal = (1,1,1)
+     cylinder, center = (2.4,1.1,0)
+          radius 0.3, height 0.15, axis (0, 0, 1)
+          dielectric constant epsilon diagonal = (1,1,1)
+     cylinder, center = (3.2,1.1,0)
+          radius 0.3, height 0.15, axis (0, 0, 1)
+          dielectric constant epsilon diagonal = (1,1,1)
+     cylinder, center = (0.8,3.5,0)
+          radius 0.3, height 0.15, axis (0, 0, 1)
+          dielectric constant epsilon diagonal = (1,1,1)
+     cylinder, center = (1.6,3.5,0)
+          radius 0.3, height 0.15, axis (0, 0, 1)
+          dielectric constant epsilon diagonal = (1,1,1)
+     cylinder, center = (2.4,3.5,0)
+          radius 0.3, height 0.15, axis (0, 0, 1)
+          dielectric constant epsilon diagonal = (1,1,1)
+     cylinder, center = (3.2,3.5,0)
+          radius 0.3, height 0.15, axis (0, 0, 1)
+          dielectric constant epsilon diagonal = (1,1,1)
+subpixel-averaging is 13.0637% done, 26.7181 s remaining
+subpixel-averaging is 26.6722% done, 11.1218 s remaining
+subpixel-averaging is 39.7364% done, 6.23168 s remaining
+subpixel-averaging is 53.345% done, 3.5234 s remaining
+subpixel-averaging is 66.9535% done, 2.0166 s remaining
+subpixel-averaging is 80.0177% done, 1.0049 s remaining
+subpixel-averaging is 93.6263% done, 0.281589 s remaining
+subpixel-averaging is 9.14457% done, 42.3141 s remaining
+subpixel-averaging is 18.6706% done, 18.6144 s remaining
+subpixel-averaging is 28.1965% done, 10.4673 s remaining
+subpixel-averaging is 37.3415% done, 7.08111 s remaining
+subpixel-averaging is 46.1054% done, 4.68514 s remaining
+subpixel-averaging is 53.3451% done, 3.52316 s remaining
+subpixel-averaging is 62.8711% done, 2.51207 s remaining
+subpixel-averaging is 72.0161% done, 1.56591 s remaining
+subpixel-averaging is 80.78% done, 0.961493 s remaining
+subpixel-averaging is 90.306% done, 0.4592 s remaining
+subpixel-averaging is 99.832% done, 0.00676345 s remaining
+subpixel-averaging is 13.608% done, 25.5932 s remaining
+subpixel-averaging is 27.7609% done, 10.5493 s remaining
+subpixel-averaging is 41.3695% done, 5.72676 s remaining
+subpixel-averaging is 55.5224% done, 3.40302 s remaining
+subpixel-averaging is 69.1309% done, 1.80798 s remaining
+subpixel-averaging is 82.7395% done, 0.879559 s remaining
+subpixel-averaging is 96.348% done, 0.152903 s remaining
+subpixel-averaging is 8.76353% done, 42.0807 s remaining
+subpixel-averaging is 17.9085% done, 18.5103 s remaining
+subpixel-averaging is 27.0534% done, 10.9043 s remaining
+subpixel-averaging is 36.1984% done, 7.11691 s remaining
+subpixel-averaging is 45.3433% done, 4.87111 s remaining
+subpixel-averaging is 54.4883% done, 3.37496 s remaining
+subpixel-averaging is 64.0143% done, 2.39214 s remaining
+subpixel-averaging is 73.1592% done, 1.48898 s remaining
+subpixel-averaging is 82.3041% done, 0.880912 s remaining
+subpixel-averaging is 91.0681% done, 0.396797 s remaining
+subpixel-averaging is 13.0637% done, 26.818 s remaining
+subpixel-averaging is 26.6722% done, 11.0868 s remaining
+subpixel-averaging is 40.8251% done, 5.95044 s remaining
+subpixel-averaging is 54.4337% done, 3.37637 s remaining
+subpixel-averaging is 68.5866% done, 1.88769 s remaining
+subpixel-averaging is 82.1951% done, 0.872925 s remaining
+subpixel-averaging is 95.2593% done, 0.201057 s remaining
+subpixel-averaging is 9.52561% done, 38.3876 s remaining
+subpixel-averaging is 16.7654% done, 20.3637 s remaining
+subpixel-averaging is 25.1482% done, 12.0185 s remaining
+subpixel-averaging is 34.2932% done, 7.82612 s remaining
+subpixel-averaging is 43.4381% done, 5.39854 s remaining
+subpixel-averaging is 52.5831% done, 3.62599 s remaining
+subpixel-averaging is 61.728% done, 2.51753 s remaining
+subpixel-averaging is 70.4919% done, 1.68974 s remaining
+subpixel-averaging is 79.6369% done, 1.07804 s remaining
+subpixel-averaging is 87.6387% done, 0.597921 s remaining
+subpixel-averaging is 95.6405% done, 0.19229 s remaining
+time for set_epsilon = 231.197 s
+time for set_conductivity = 2.34514 s
+time for set_conductivity = 2.30541 s
+time for set_conductivity = 2.27674 s
+-----------
+Meep progress: 0.0125/150.0 = 0.0% done in 69.6s, 835038.8s to go
+on time step 1 (time=0.0125), 69.6328 s/step
+Meep progress: 0.1125/150.0 = 0.1% done in 73.7s, 98254.9s to go
+on time step 9 (time=0.1125), 0.51457 s/step
+Meep progress: 0.21250000000000002/150.0 = 0.1% done in 77.8s, 54873.1s to go
+on time step 17 (time=0.2125), 0.512898 s/step
+Meep progress: 0.3125/150.0 = 0.2% done in 81.9s, 39238.4s to go
+on time step 25 (time=0.3125), 0.509505 s/step
+Meep progress: 0.41250000000000003/150.0 = 0.3% done in 86.0s, 31193.1s to go
+on time step 33 (time=0.4125), 0.511626 s/step
+Meep progress: 0.5125000000000001/150.0 = 0.3% done in 90.2s, 26301.2s to go
+on time step 41 (time=0.5125), 0.520234 s/step
+Meep progress: 0.6125/150.0 = 0.4% done in 94.3s, 22991.1s to go
+on time step 49 (time=0.6125), 0.51125 s/step
+Meep progress: 0.7125/150.0 = 0.5% done in 98.4s, 20618.9s to go
+on time step 57 (time=0.7125), 0.516916 s/step
+Meep progress: 0.8125/150.0 = 0.5% done in 102.5s, 18817.3s to go
+on time step 65 (time=0.8125), 0.510588 s/step
+Meep progress: 0.9125000000000001/150.0 = 0.6% done in 106.6s, 17417.3s to go
+on time step 73 (time=0.9125), 0.515894 s/step
+Meep progress: 1.0125/150.0 = 0.7% done in 110.7s, 16289.7s to go
+on time step 81 (time=1.0125), 0.511888 s/step
