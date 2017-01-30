@@ -1,6 +1,6 @@
 #!/bin/bash
 
-timeTrials=( 5 15 50 150 500)
+timeTrials=( 1500)
 
 for i in ${timeTrials[@]}; do
 	mpirun -np 12 meep-openmpi no-struct=false no-holes=false time=$i light_mode.ctl > timeTrialHoles$i.out
