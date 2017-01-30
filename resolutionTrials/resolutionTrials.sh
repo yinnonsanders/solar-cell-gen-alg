@@ -3,7 +3,8 @@
 resolutions=( 5 10 20 30 40)
 
 for i in ${resolutions[@]}; do
-	mpirun -np 12 meep-openmpi no-struct=false no-holes=true time=1500 res=$i light_mode.ctl > resolutionTrial$i.out
+	mpirun -np 12 meep-openmpi no-struct=true no-holes=true time=1500 resolution$i.ctl > /dev/null
+	mpirun -np 12 meep-openmpi no-struct=false no-holes=true time=1500 resolution$i.ctl > resolutionTrial$i.out
 
 	IFS=$', '
 
