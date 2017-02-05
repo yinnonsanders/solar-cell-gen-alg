@@ -1,0 +1,197 @@
+--------------------------------------------------------------------------
+[[15399,1],1]: A high-performance Open MPI point-to-point messaging module
+was unable to find any relevant network interfaces:
+
+Module: OpenFabrics (openib)
+  Host: euca-128-84-11-54
+
+Another transport will be used instead, although this may result in
+lower performance.
+--------------------------------------------------------------------------
+Using MPI version 3.0, 12 processes
+command-line param: no-struct=false
+command-line param: no-holes=false
+command-line param: time=1500
+-----------
+Initializing structure...
+Working in 3D dimensions.
+Computational cell is 4 x 4 x 5 with resolution 5
+     block, center = (0,0,0)
+          size (1e+20,1e+20,0.15)
+          axes (1,0,0), (0,1,0), (0,0,1)
+          dielectric constant epsilon diagonal = (12,12,12)
+     cylinder, center = (0.942,0.25,0)
+          radius 0.26, height 0.15, axis (0, 0, 1)
+          dielectric constant epsilon diagonal = (1,1,1)
+     cylinder, center = (0.073,0.259,0)
+          radius 0.144, height 0.15, axis (0, 0, 1)
+          dielectric constant epsilon diagonal = (1,1,1)
+     cylinder, center = (3.909,3.747,0)
+          radius 0.194, height 0.15, axis (0, 0, 1)
+          dielectric constant epsilon diagonal = (1,1,1)
+     cylinder, center = (1.13,3.685,0)
+          radius 0.25, height 0.15, axis (0, 0, 1)
+          dielectric constant epsilon diagonal = (1,1,1)
+     cylinder, center = (1.533,2.332,0)
+          radius 0.241, height 0.15, axis (0, 0, 1)
+          dielectric constant epsilon diagonal = (1,1,1)
+     cylinder, center = (3.734,1.164,0)
+          radius 0.19, height 0.15, axis (0, 0, 1)
+          dielectric constant epsilon diagonal = (1,1,1)
+     cylinder, center = (0.287,2.548,0)
+          radius 0.145, height 0.15, axis (0, 0, 1)
+          dielectric constant epsilon diagonal = (1,1,1)
+     cylinder, center = (2.764,3.691,0)
+          radius 0.298, height 0.15, axis (0, 0, 1)
+          dielectric constant epsilon diagonal = (1,1,1)
+     cylinder, center = (2.493,1.289,0)
+          radius 0.292, height 0.15, axis (0, 0, 1)
+          dielectric constant epsilon diagonal = (1,1,1)
+     cylinder, center = (0.827,1.934,0)
+          radius 0.205, height 0.15, axis (0, 0, 1)
+          dielectric constant epsilon diagonal = (1,1,1)
+     cylinder, center = (0.666,1.518,0)
+          radius 0.217, height 0.15, axis (0, 0, 1)
+          dielectric constant epsilon diagonal = (1,1,1)
+     cylinder, center = (2.371,3.221,0)
+          radius 0.177, height 0.15, axis (0, 0, 1)
+          dielectric constant epsilon diagonal = (1,1,1)
+     cylinder, center = (0.213,3.951,0)
+          radius 0.11, height 0.15, axis (0, 0, 1)
+          dielectric constant epsilon diagonal = (1,1,1)
+     cylinder, center = (0.641,2.303,0)
+          radius 0.155, height 0.15, axis (0, 0, 1)
+          dielectric constant epsilon diagonal = (1,1,1)
+     cylinder, center = (1.928,0.331,0)
+          radius 0.178, height 0.15, axis (0, 0, 1)
+          dielectric constant epsilon diagonal = (1,1,1)
+     cylinder, center = (2.218,2.394,0)
+          radius 0.281, height 0.15, axis (0, 0, 1)
+          dielectric constant epsilon diagonal = (1,1,1)
+     cylinder, center = (1.944,1,0)
+          radius 0.221, height 0.15, axis (0, 0, 1)
+          dielectric constant epsilon diagonal = (1,1,1)
+     cylinder, center = (3.409,3.271,0)
+          radius 0.223, height 0.15, axis (0, 0, 1)
+          dielectric constant epsilon diagonal = (1,1,1)
+     cylinder, center = (0.957,1.11,0)
+          radius 0.266, height 0.15, axis (0, 0, 1)
+          dielectric constant epsilon diagonal = (1,1,1)
+     cylinder, center = (3.356,0.939,0)
+          radius 0.235, height 0.15, axis (0, 0, 1)
+          dielectric constant epsilon diagonal = (1,1,1)
+     cylinder, center = (3.187,2.634,0)
+          radius 0.19, height 0.15, axis (0, 0, 1)
+          dielectric constant epsilon diagonal = (1,1,1)
+     cylinder, center = (3.044,1.196,0)
+          radius 0.158, height 0.15, axis (0, 0, 1)
+          dielectric constant epsilon diagonal = (1,1,1)
+     cylinder, center = (2.272,1.846,0)
+          radius 0.262, height 0.15, axis (0, 0, 1)
+          dielectric constant epsilon diagonal = (1,1,1)
+     cylinder, center = (1.798,1.611,0)
+          radius 0.209, height 0.15, axis (0, 0, 1)
+          dielectric constant epsilon diagonal = (1,1,1)
+     cylinder, center = (3.99,3.186,0)
+          radius 0.147, height 0.15, axis (0, 0, 1)
+          dielectric constant epsilon diagonal = (1,1,1)
+     cylinder, center = (3.713,0.483,0)
+          radius 0.226, height 0.15, axis (0, 0, 1)
+          dielectric constant epsilon diagonal = (1,1,1)
+     cylinder, center = (0.493,0.051,0)
+          radius 0.181, height 0.15, axis (0, 0, 1)
+          dielectric constant epsilon diagonal = (1,1,1)
+     cylinder, center = (1.718,3.881,0)
+          radius 0.166, height 0.15, axis (0, 0, 1)
+          dielectric constant epsilon diagonal = (1,1,1)
+     cylinder, center = (3.589,1.605,0)
+          radius 0.209, height 0.15, axis (0, 0, 1)
+          dielectric constant epsilon diagonal = (1,1,1)
+     cylinder, center = (0.302,1.859,0)
+          radius 0.086, height 0.15, axis (0, 0, 1)
+          dielectric constant epsilon diagonal = (1,1,1)
+     cylinder, center = (1.969,3.224,0)
+          radius 0.175, height 0.15, axis (0, 0, 1)
+          dielectric constant epsilon diagonal = (1,1,1)
+     cylinder, center = (0.412,3.226,0)
+          radius 0.166, height 0.15, axis (0, 0, 1)
+          dielectric constant epsilon diagonal = (1,1,1)
+     cylinder, center = (1.189,2.707,0)
+          radius 0.122, height 0.15, axis (0, 0, 1)
+          dielectric constant epsilon diagonal = (1,1,1)
+     cylinder, center = (2.806,0.571,0)
+          radius 0.138, height 0.15, axis (0, 0, 1)
+          dielectric constant epsilon diagonal = (1,1,1)
+     cylinder, center = (3.85,2.192,0)
+          radius 0.195, height 0.15, axis (0, 0, 1)
+          dielectric constant epsilon diagonal = (1,1,1)
+     cylinder, center = (2.656,1.701,0)
+          radius 0.132, height 0.15, axis (0, 0, 1)
+          dielectric constant epsilon diagonal = (1,1,1)
+     cylinder, center = (3.816,2.563,0)
+          radius 0.144, height 0.15, axis (0, 0, 1)
+          dielectric constant epsilon diagonal = (1,1,1)
+     cylinder, center = (3.454,3.797,0)
+          radius 0.134, height 0.15, axis (0, 0, 1)
+          dielectric constant epsilon diagonal = (1,1,1)
+     cylinder, center = (0.75,3.214,0)
+          radius 0.16, height 0.15, axis (0, 0, 1)
+          dielectric constant epsilon diagonal = (1,1,1)
+time for set_epsilon = 0.145049 s
+time for set_conductivity = 0.00119615 s
+time for set_conductivity = 0.00120115 s
+time for set_conductivity = 0.00119281 s
+-----------
+Meep progress: 44.900000000000006/1500.0 = 3.0% done in 4.0s, 129.9s to go
+on time step 449 (time=44.9), 0.00894262 s/step
+Meep progress: 120.4/1500.0 = 8.0% done in 8.0s, 91.8s to go
+on time step 1204 (time=120.4), 0.00530023 s/step
+Meep progress: 169.70000000000002/1500.0 = 11.3% done in 12.0s, 94.2s to go
+on time step 1697 (time=169.7), 0.00811717 s/step
+Meep progress: 246.20000000000002/1500.0 = 16.4% done in 16.0s, 81.6s to go
+on time step 2462 (time=246.2), 0.00523046 s/step
+Meep progress: 323.20000000000005/1500.0 = 21.5% done in 20.0s, 72.9s to go
+on time step 3232 (time=323.2), 0.00519825 s/step
+Meep progress: 400.3/1500.0 = 26.7% done in 24.0s, 66.0s to go
+on time step 4003 (time=400.3), 0.00518977 s/step
+Meep progress: 476.40000000000003/1500.0 = 31.8% done in 28.0s, 60.2s to go
+on time step 4764 (time=476.4), 0.00525751 s/step
+Meep progress: 553.1/1500.0 = 36.9% done in 32.0s, 54.8s to go
+on time step 5531 (time=553.1), 0.0052197 s/step
+Meep progress: 627.7/1500.0 = 41.8% done in 36.1s, 50.1s to go
+on time step 6277 (time=627.7), 0.00540286 s/step
+Meep progress: 681.1/1500.0 = 45.4% done in 40.1s, 48.2s to go
+on time step 6811 (time=681.1), 0.00749528 s/step
+Meep progress: 755.5/1500.0 = 50.4% done in 44.1s, 43.4s to go
+on time step 7555 (time=755.5), 0.00538141 s/step
+Meep progress: 829.6/1500.0 = 55.3% done in 48.1s, 38.8s to go
+on time step 8296 (time=829.6), 0.00540258 s/step
+Meep progress: 904.0/1500.0 = 60.3% done in 52.1s, 34.3s to go
+on time step 9040 (time=904), 0.00537637 s/step
+Meep progress: 979.7/1500.0 = 65.3% done in 56.1s, 29.8s to go
+on time step 9797 (time=979.7), 0.00528728 s/step
+Meep progress: 1055.1000000000001/1500.0 = 70.3% done in 60.1s, 25.3s to go
+on time step 10551 (time=1055.1), 0.00530899 s/step
+Meep progress: 1122.8/1500.0 = 74.9% done in 64.2s, 21.6s to go
+on time step 11228 (time=1122.8), 0.0060189 s/step
+Meep progress: 1180.1000000000001/1500.0 = 78.7% done in 68.2s, 18.5s to go
+on time step 11801 (time=1180.1), 0.00698196 s/step
+Meep progress: 1257.3000000000002/1500.0 = 83.8% done in 72.2s, 13.9s to go
+on time step 12573 (time=1257.3), 0.00518303 s/step
+Meep progress: 1334.6000000000001/1500.0 = 89.0% done in 76.2s, 9.4s to go
+on time step 13346 (time=1334.6), 0.00518056 s/step
+Meep progress: 1412.0/1500.0 = 94.1% done in 80.2s, 5.0s to go
+on time step 14120 (time=1412), 0.00517323 s/step
+Meep progress: 1490.1000000000001/1500.0 = 99.3% done in 84.2s, 0.6s to go
+on time step 14901 (time=1490.1), 0.00512533 s/step
+run 0 finished at t = 1500.0 (15000 timesteps)
+flux1:, 0.5, -6.325915393541342e-6, 7.141615136320114e-6
+flux1:, 0.7857142857142857, 3.07803992500313e-4, -4.3474383271182686e-5
+flux1:, 1.0714285714285714, 0.00910098325478677, -0.0025840486182400124
+flux1:, 1.3571428571428572, 0.06320143953338941, -0.012036037722700012
+flux1:, 1.6428571428571428, 0.017216227961778394, -0.011979637832017713
+flux1:, 1.9285714285714284, 3.1876026302252127e-9, -3.402824196531413e-9
+flux1:, 2.214285714285714, 1.8166056062314721e-9, -1.8267490566023896e-9
+flux1:, 2.4999999999999996, 1.368091782236454e-9, -1.3751419029373771e-9
+
+Elapsed run time = 90.8026 s
