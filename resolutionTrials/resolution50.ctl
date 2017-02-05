@@ -9,7 +9,7 @@
 (define-param rectpos "rectpos.txt")
 
 ; Computation parameters
-(define-param res 30)	; Resolution
+(define-param res 50)	; Resolution
 (define-param fcen 1.5) ; Center frequency
 (define-param df 2.0)	; Frequency width
 (define-param nfreq 300); Frequency sampling

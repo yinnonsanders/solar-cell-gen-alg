@@ -1,9 +1,10 @@
 #!/bin/bash
 
-resolutions=( 5 10 20 30 40)
+resolutions=( 30 40 50)
 
 for i in ${resolutions[@]}; do
-	mpirun -np 12 meep-openmpi no-struct=false no-holes=false time=1500 resolution$i.ctl > resolutionTrialHoles$i.out
+	meep no-struct=true no-holes=true time=1500 resolution$i.ctl > /dev/null
+	meep no-struct=false no-holes=false time=1500 resolution$i.ctl > resolutionTrialHoles$i.out
 
 	IFS=$', '
 
@@ -18,5 +19,5 @@ for i in ${resolutions[@]}; do
 		echo ${linearray[3]} >> resolutionTrialHoles$i/tfluxes.txt
 	done
 
-	python findAbsorption8.py resolutionTrialHoles$i
+	python findAbsorption.py resolutionTrialHoles$i
 done
