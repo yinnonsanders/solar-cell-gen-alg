@@ -1,9 +1,9 @@
 #!/bin/bash
 
-timeTrials=( 5 15 50 150 500)
+timeTrials=( 5 150 1500)
 
 for i in ${timeTrials[@]}; do
-	mpirun -np 12 meep-openmpi no-struct=false no-holes=true time=$i light_mode.ctl > timeTrial$i.out
+	meep no-struct=false no-holes=true time=$i absorption_random_2D_photonic.ctl > timeTrial$i.out
 
 	IFS=$', '
 
@@ -18,5 +18,5 @@ for i in ${timeTrials[@]}; do
 		echo ${linearray[3]} >> timeTrial$i/tfluxes.txt
 	done
 
-	python findAbsorption8.py timeTrial$i
+	python findAbsorption.py timeTrial$i
 done
