@@ -27,8 +27,8 @@ for i in xrange(1,300):
 	tflux = tfluxes.readline()
 	rflux = rfluxes.readline()
 	t = float(tflux) / float(emptytflux)
-	r = float(rflux) / float(emptyrflux)
-	a = 1.0 - t - r
+	r = (float(rflux) - float(emptyrflux)) / float(emptyrflux)
+	a = 1.0 - t + r
 	f = .15 * float(freq)
 	wavelength = int(100 / float(f))
 	absorptions.write("%d" % wavelength)

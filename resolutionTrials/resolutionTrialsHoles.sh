@@ -1,6 +1,6 @@
 #!/bin/bash
 
-resolutions=( 50)
+resolutions=( 10 20 50)
 
 for i in ${resolutions[@]}; do
 	meep no-struct=true no-holes=true time=150 resolution$i.ctl > /dev/null

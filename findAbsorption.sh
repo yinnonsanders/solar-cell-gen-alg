@@ -1,6 +1,6 @@
 #!/bin/bash
 
-mpirun -np 12 meep-openmpi no-struct=false no-holes=false absorption_random_2D_photonic.ctl > $1.out
+mpirun -np 12 meep-openmpi time=250 no-struct=false no-holes=false absorption_random_2D_photonic.ctl > $1.out
 IFS=$', '
 
 > $1/tfluxes.txt
