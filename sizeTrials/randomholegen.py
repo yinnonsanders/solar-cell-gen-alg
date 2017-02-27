@@ -6,6 +6,7 @@ __author__ = "Yinnon Sanders"
 
 import math
 import random
+import sys
 
 length = 4 # Lateral size of sample
 area = length**2 # Area of sample
@@ -40,7 +41,7 @@ while(totalHoleArea/area < fillingFraction):
 
 # filling fraction reached
 
-rodpos = open(sys.argv[0] + "/rodpos.txt", "w")
+rodpos = open(sys.argv[1] + "/rodpos.txt", "w")
 
 for hole in holeList:
 	rodpos.write("%.3f" % hole.x)
