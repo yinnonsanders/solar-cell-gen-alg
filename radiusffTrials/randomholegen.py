@@ -10,10 +10,10 @@ import sys
 
 length = 4 # Lateral size of sample
 area = length**2 # Area of sample
-holeRadius = .2 # Radius of holes
+holeRadius = float(sys.argv[1]) # Radius of holes
 holeArea = math.pi * holeRadius**2
 totalHoleArea = 0
-fillingFraction = float(sys.argv[1]) # Filling fraction of holes
+fillingFraction = float(sys.argv[2]) # Filling fraction of holes
 holeList = [] # List of holes
 
 class Hole(object):
