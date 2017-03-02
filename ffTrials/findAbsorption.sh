@@ -20,7 +20,7 @@ fillingfractions=(.1 .2 .3 .4 .5 .6)
 for fillingfraction in ${fillingfractions[@]}; do
 	python randomholegen.py $fillingfraction
 
-	mpirun -np 2 meep-openmpi no-struct=false no-holes=false rodpos=\"$radius/rodpos.txt\" findAbsorption.ctl > $fillingfraction.out
+	mpirun -np 2 meep-openmpi no-struct=false no-holes=false rodpos=\"$fillingfraction/rodpos.txt\" findAbsorption.ctl > $fillingfraction.out
 
 	> $fillingfraction/tfluxes.txt
 	> $fillingfraction/rfluxes.txt
