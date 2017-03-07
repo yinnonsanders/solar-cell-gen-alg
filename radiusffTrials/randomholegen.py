@@ -41,7 +41,7 @@ while(totalHoleArea/area < fillingFraction):
 
 # filling fraction reached
 
-rodpos = open(sys.argv[1] + "/rodpos.txt", "w")
+rodpos = open("rad" + sys.argv[1] + "ff" + sys.argv[2] + "/rodpos.txt", "w")
 
 for hole in holeList:
 	rodpos.write("%.3f" % hole.x)
