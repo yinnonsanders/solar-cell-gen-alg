@@ -7,9 +7,11 @@ for (( i = 0; i < 7; i++ )); do
 	FOLDER=$SCDIR/parallelTrials/$i
 	OUT=$FOLDER/meep.out
 
-	mpirun -np 4 meep-openmpi no-struct=false no-holes=false time=250 rodpos=\"$FOLDER/rodpos.txt\" $SCDIR/absorption_random_2D_photonic.ctl > $OUT
+	mpirun -np 4 meep-openmpi no-struct=false no-holes=false time=250 rodpos=\"$FOLDER/rodpos.txt\" $SCDIR/absorption_random_2D_photonic.ctl > $OUT &
 
 done
+
+wait
 
 for (( i = 0; i < 7; i++ )); do
 
