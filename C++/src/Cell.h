@@ -50,4 +50,5 @@ public:
     void deleteHole(Hole*);
     // print attributes of all holes in cell
     void print();
+    void toString();
 };
