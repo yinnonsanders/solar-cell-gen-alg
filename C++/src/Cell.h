@@ -8,17 +8,18 @@ using namespace std;
 
 #define MAXHOLES 300
 #define MAXCELLS 24
+#define NUMFREQUENCIES 300
 
 class Cell
 {
 private:
     Hole * holeList;
     int numHoles;
+    int * absorptions;
     double avgAbsorption;
     // utility function, cannot be accessed outside
-    void computeAvgAbsorption();
-    int ID;
-    static bool isTaken[MAXCELLS];
+    void computeAbsorptions();
+    static double * frequencies;
 public:
     // initialize a Cell object with no holes
     Cell();
@@ -28,8 +29,10 @@ public:
     Cell& operator=(const Cell& obj);
     // return efficiency, compute if unknown
     double getAvgAbsorption();
+    // return absorptions, compute if unknown
+    double * getAbsorptions();
     // reset efficiency
-    void resetAvgAbsorption();
+    void resetAbsorption();
     // return list of holes
     Hole * getHoles();
     // return number of holes
@@ -50,5 +53,4 @@ public:
     void deleteHole(Hole*);
     // print attributes of all holes in cell
     void print();
-    void toString();
 };

@@ -6,7 +6,12 @@
 #include "Cell.h"
 using namespace std;
 
-bool Cell::isTaken[MAXCELLS] = {false};
+double * Cell::frequencies = (double*) malloc(NUMFREQUENCIES*sizeof(double));
+ifstream in("/home/ubuntu/solar-cell-gen-alg/C++/freqs.txt");
+for (int i = 0; i < NUMFREQUENCIES; i++)
+{
+    in >> frequencies[i];
+}
 
 // initialize a Cell object with no holes
 Cell::Cell()
@@ -14,16 +19,7 @@ Cell::Cell()
     numHoles = 0;
     avgAbsorption = -1.0;
     holeList = (Hole *) malloc(MAXHOLES * sizeof(Hole));
-    for (int i = 0; i < MAXCELLS; i++)
-    {
-        if (!isTaken[i])
-        {
-            ID = i;
-            isTaken[i] = true;
-            return;
-        }
-    }
-    throw invalid_argument("too many cells");
+    absorptions = (double*) malloc(NUMFREQUENCIES * sizeof(double));
 }
 
 // initialize a Cell object from another (copy constructor)
@@ -33,16 +29,7 @@ Cell::Cell(const Cell &obj)
    avgAbsorption = obj.avgAbsorption;
    holeList = (Hole *) malloc(MAXHOLES * sizeof(Hole));
    copy(obj.holeList, obj.holeList + numHoles, holeList);
-   for (int i = 0; i < MAXCELLS; i++)
-    {
-        if (!isTaken[i])
-        {
-            ID = i;
-            isTaken[i] = true;
-            return;
-        }
-    }
-    throw invalid_argument("too many cells");
+   absorptions = (double*) malloc(NUMFREQUENCIES * sizeof(double));
 }
 
 // initialize a Cell object from another (assignment constructor)
@@ -52,16 +39,7 @@ Cell& Cell::operator=(const Cell &obj)
    avgAbsorption = obj.avgAbsorption;
    holeList = (Hole *) malloc(MAXHOLES * sizeof(Hole));
    copy(obj.holeList, obj.holeList + numHoles, holeList);
-   for (int i = 0; i < MAXCELLS; i++)
-    {
-        if (!isTaken[i])
-        {
-            ID = i;
-            isTaken[i] = true;
-            return *this;
-        }
-    }
-    throw invalid_argument("too many cells");
+   absorptions = (double*) malloc(NUMFREQUENCIES * sizeof(double));
 }
 
 // return efficiency, compute if unknown
@@ -69,13 +47,18 @@ double Cell::getAvgAbsorption()
 {
     if (avgAbsorption == -1.0)
     {
-        computeAvgAbsorption();
+        computeAbsorptions();
     }
-    return avgAbsorption;
+    return absorptions;
+}
+
+double * Cell::getAbsorptions()
+{
+
 }
 
 // reset efficiency
-void Cell::resetAvgAbsorption()
+void Cell::resetAbsorption()
 {
     avgAbsorption = -1.0;
 }
@@ -173,10 +156,10 @@ void Cell::print()
     }
 }
 
-void Cell::computeAvgAbsorption()
+void Cell::computeAbsorptions()
 {
     ofstream rp;
-    string rpFilepath = "/home/ubuntu/solar-cell-gen-alg/C++/files/" + to_string(ID) + "/rodpos.txt";
+    string rpFilepath = "/home/ubuntu/solar-cell-gen-alg/C++/rodpos.txt";
     rp.open(rpFilepath, ios::out | ios::trunc);
     if (rp.is_open())
     {
@@ -189,9 +172,28 @@ void Cell::computeAvgAbsorption()
         rp.close();
     }
     else printf("Unable to open file");
-    string cmd = "~/solar-cell-gen-alg/runParallel.sh " + to_string(ID);
+    string cmd = "/home/ubuntu/solar-cell-gen-alg/C++/findAbsorption.sh";
     system(cmd.c_str()); // run simulation
-    ifstream aa;
-    aa.open("/home/ubuntu/solar-cell-gen-alg/C++/files/" + to_string(ID) + "/avgAbsorption.txt", ios::in);
-    aa >> avgAbsorption;
+    ifstream emptyrfluxes("/home/ubuntu/solar-cell-gen-alg/C++/emptyrfluxes.txt");
+    ifstream emptytfluxes("/home/ubuntu/solar-cell-gen-alg/C++/emptytfluxes.txt");
+    ifstream rfluxes("/home/ubuntu/solar-cell-gen-alg/C++/rfluxes.txt");
+    ifstream tfluxes("/home/ubuntu/solar-cell-gen-alg/C++/tfluxes.txt");
+    double erf;
+    double etf;
+    double rf;
+    double tf;
+    double absSum = 0;
+    for (int i = 0; i < NUMFREQUENCIES; i++)
+    {
+        emptyrfluxes >> erf;
+        emptytfluxes >> etf;
+        rfluxes >> rf;
+        tfluxes >> tf;
+        r = -rf / erf;
+        t = tf / etf;
+        abs = 1.0 - t - r;
+        absorptions[i] = abs;
+        absSum += abs;
+    }
+    avgAbsorption = absSum / NUMFREQUENCIES;
 }
