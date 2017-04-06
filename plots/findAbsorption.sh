@@ -37,7 +37,7 @@ mpirun -np 2 meep-openmpi no-struct=false no-holes=false findAbsorption.ctl > ho
 > holes/absorptions.txt
 > holes/avgAbsorption.txt
 
-grep flux1 flat.out | while read -r line; do
+grep flux1 holes.out | while read -r line; do
 	linearray=($line)
 	echo ${linearray[2]} >> holes/rfluxes.txt
 	echo ${linearray[3]} >> holes/tfluxes.txt
