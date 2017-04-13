@@ -6,13 +6,6 @@
 #include "Cell.h"
 using namespace std;
 
-double * Cell::frequencies = (double*) malloc(NUMFREQUENCIES*sizeof(double));
-ifstream in("/home/ubuntu/solar-cell-gen-alg/C++/freqs.txt");
-for (int i = 0; i < NUMFREQUENCIES; i++)
-{
-    in >> frequencies[i];
-}
-
 // initialize a Cell object with no holes
 Cell::Cell()
 {
@@ -59,7 +52,7 @@ double * Cell::getFrequencies()
     {
         in >> frequencies[i];
     }
-    return frequencies
+    return frequencies;
 }
 
 // reset efficiency
@@ -187,6 +180,8 @@ void Cell::computeAbsorptions()
     double etf;
     double rf;
     double tf;
+    double r;
+    double t;
     double absSum = 0;
     for (int i = 0; i < NUMFREQUENCIES; i++)
     {
