@@ -182,6 +182,7 @@ void Cell::computeAbsorptions()
     double tf;
     double r;
     double t;
+    double absorption;
     double absSum = 0;
     for (int i = 0; i < NUMFREQUENCIES; i++)
     {
@@ -191,7 +192,7 @@ void Cell::computeAbsorptions()
         tfluxes >> tf;
         r = -rf / erf;
         t = tf / etf;
-        abs = 1.0 - t - r;
+        absorption = 1.0 - t - r;
         absorptions[i] = abs;
         absSum += abs;
     }
