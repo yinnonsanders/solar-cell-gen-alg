@@ -32,16 +32,6 @@ Cell::Cell(const Cell &obj)
    absorptions = (double*) malloc(NUMFREQUENCIES * sizeof(double));
 }
 
-// initialize a Cell object from another (assignment constructor)
-Cell& Cell::operator=(const Cell &obj)
-{
-   numHoles = obj.numHoles;
-   avgAbsorption = obj.avgAbsorption;
-   holeList = (Hole *) malloc(MAXHOLES * sizeof(Hole));
-   copy(obj.holeList, obj.holeList + numHoles, holeList);
-   absorptions = (double*) malloc(NUMFREQUENCIES * sizeof(double));
-}
-
 // return efficiency, compute if unknown
 double Cell::getAvgAbsorption()
 {

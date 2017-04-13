@@ -15,7 +15,7 @@ class Cell
 private:
     Hole * holeList;
     int numHoles;
-    int * absorptions;
+    double * absorptions;
     double avgAbsorption;
     // utility function, cannot be accessed outside
     void computeAbsorptions();
