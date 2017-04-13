@@ -15,4 +15,5 @@ int main()
 	holePointer1->print();
 	cell1.deleteHole(holePointer1);
 	cell1.print();
+	printf("%.2f\n", cell1.getAvgAbsorption());
 }

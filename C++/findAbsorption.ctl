@@ -8,10 +8,10 @@
 
 ; Computation parameters
 (define-param res 40)	; Resolution
-(define-param fcen .6) ; Center frequency
-(define-param df .3)	; Frequency width
+(define-param fcen 1.75) ; Center frequency
+(define-param df 1.5)	; Frequency width
 (define-param nfreq 300); Frequency sampling
-(define-param time 250) ; Computation time
+(define-param time 50) ; Computation time
 
 (define-param dPML 1)		; Thickness of PMLs
 (define-param H 5)		; Height of computational domain

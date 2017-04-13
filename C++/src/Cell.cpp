@@ -49,12 +49,16 @@ double Cell::getAvgAbsorption()
     {
         computeAbsorptions();
     }
-    return absorptions;
+    return avgAbsorption;
 }
 
 double * Cell::getAbsorptions()
 {
-
+    if (avgAbsorption == -1.0)
+    {
+        computeAbsorptions();
+    }
+    return absorptions;
 }
 
 // reset efficiency
