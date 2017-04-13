@@ -194,7 +194,7 @@ void Cell::computeAbsorptions()
         t = tf / etf;
         absorption = 1.0 - t - r;
         absorptions[i] = absorption;
-        absSum += abs;
+        absSum += absorption;
     }
     avgAbsorption = absSum / NUMFREQUENCIES;
 }
