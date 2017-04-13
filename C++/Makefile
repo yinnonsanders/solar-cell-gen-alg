@@ -3,7 +3,7 @@ SOURCES = $(wildcard src/*.cpp)
 DEPS = $(wildcard src/*.h)
 OBJECTS = $(patsubst src/%.cpp, obj/%.o, $(SOURCES))
 OBJECTDEPS = $(patsubst src/%.h, obj/%.o, $(DEPS))
-TARGETS = bin/ParticleSwarm bin/CellTest
+TARGETS = bin/CellTest
 
 CC = g++
 FLAGS = -Wall -std=c++11 -pthread

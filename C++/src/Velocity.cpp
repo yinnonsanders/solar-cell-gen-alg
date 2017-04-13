@@ -217,7 +217,7 @@ void CellVelocity::move(Cell* c)
 	{
 		holeVelocityList[i].move(hl + i);
 	}
-	c->resetAvgAbsorption();
+	c->resetAbsorption();
 }
 
 CellVelocity CellVelocity::findDirection(Cell* c1, Cell* c2)

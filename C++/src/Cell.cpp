@@ -61,6 +61,17 @@ double * Cell::getAbsorptions()
     return absorptions;
 }
 
+double * Cell::getFrequencies()
+{
+    double * frequencies = (double*) malloc(NUMFREQUENCIES*sizeof(double));
+    ifstream in("/home/ubuntu/solar-cell-gen-alg/C++/freqs.txt");
+    for (int i = 0; i < NUMFREQUENCIES; i++)
+    {
+        in >> frequencies[i];
+    }
+    return frequencies
+}
+
 // reset efficiency
 void Cell::resetAbsorption()
 {
@@ -165,9 +176,9 @@ void Cell::computeAbsorptions()
     ofstream rp;
     string rpFilepath = "/home/ubuntu/solar-cell-gen-alg/C++/rodpos.txt";
     rp.open(rpFilepath, ios::out | ios::trunc);
-    if (rp.is_open())
+    if(rp.is_open())
     {
-        for (int i = 0; i < numHoles; i++)
+        for(int i = 0; i < numHoles; i++)
         {
             rp << holeList[i].getX() << "\t"
                << holeList[i].getY() << "\t"

@@ -19,7 +19,6 @@ private:
     double avgAbsorption;
     // utility function, cannot be accessed outside
     void computeAbsorptions();
-    static double * frequencies;
 public:
     // initialize a Cell object with no holes
     Cell();
@@ -31,6 +30,8 @@ public:
     double getAvgAbsorption();
     // return absorptions, compute if unknown
     double * getAbsorptions();
+    // return frequencies
+    double * getFrequencies();
     // reset efficiency
     void resetAbsorption();
     // return list of holes
