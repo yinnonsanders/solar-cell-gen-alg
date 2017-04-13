@@ -77,50 +77,6 @@
     (readfile)
 ))
 
-(if (not no-holes)
-  (let () 
-    (define port2 (open-input-file cubepos))
-    (define x 0)
-    (define y 0)
-    (define a 0)
-    (define (readfile) 
-      (begin 
-        (set! x (read port2))
-        (set! y (read port2))
-        (set! a (read port2))
-        (if (not (eof-object? x))
-          (begin
-            (set! geometry 
-              (append geometry 
-                (list 
-                  (make block (center x y) (size a a .15) (material air)))))				
-            (readfile)))))
-    (readfile)
-))
-
-(if (not no-holes)
-  (let () 
-    (define port3 (open-input-file rectpos))
-    (define x 0)
-    (define y 0)
-    (define a 0)
-    (define b 0)
-    (define (readfile) 
-      (begin 
-        (set! x (read port3))
-        (set! y (read port3))
-        (set! a (read port3))
-	(set! b (read port3))
-        (if (not (eof-object? x))
-          (begin
-            (set! geometry 
-              (append geometry 
-                (list 
-                  (make block (center x y) (size a b .15) (material air)))))        
-            (readfile)))))
-    (readfile)
-))
-
 ; Perfectly Matched Layers
 (set! pml-layers (list (make pml (thickness dPML) (direction Z))))
 
